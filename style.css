@@ -13,12 +13,18 @@ h1 {
 
 }
 */
-h1 {
+
+h1.title {
     color: red;
-}
-.title {
+    }
+     
+
+h3.title {
+    color: orange;
+        }
+/*.title {
     background-color: gray;
 }
 #important {
     color: yellow
-}
+}*/
