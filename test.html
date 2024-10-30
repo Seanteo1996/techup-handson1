@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Validation</title>
+    <style>
+        .error-message {
+            color: red;
+            display: none; /* Hide by default */
+        }
+    </style>
+</head>
+<body>
+
+<form class="contact-form" onsubmit="return validateCheckboxes()">
+    <div class="question">
+        <h3>Which areas are you keen on being mentored in?</h3>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="interests" value="Career Development"> Career Development</label>
+            <label><input type="checkbox" name="interests" value="Leadership and Management"> Leadership and Management</label>
+            <label><input type="checkbox" name="interests" value="Web Development"> Web Development</label>
+            <label><input type="checkbox" name="interests" value="Mobile App Development"> Mobile App Development</label>
+            <label><input type="checkbox" name="interests" value="Data Science & Analytics"> Data Science & Analytics</label>
+            <label><input type="checkbox" name="interests" value="Cybersecurity"> Cybersecurity</label>
+            <label><input type="checkbox" name="interests" value="Cloud Computing"> Cloud Computing</label>
+            <label><input type="checkbox" name="interests" value="Software Engineering"> Software Engineering</label>
+            <label><input type="checkbox" name="interests" value="User Experience (UX) and User Interface (UI) Design"> User Experience (UX) and UI Design</label>
+            <label><input type="checkbox" name="interests" value="AI & Machine Learning"> AI & Machine Learning</label>
+            <label><input type="checkbox" name="interests" value="Policy Management in the Tech space"> Policy Management in the Tech space</label> 
+        </div>
+        <span id="error-message" class="error-message">Please select at least 1 area.</span>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function validateCheckboxes() {
+        const checkboxes = document.querySelectorAll('input[name="interests"]');
+        const errorMessage = document.getElementById('error-message');
+        let isChecked = false;
+
+        // Check if any checkbox is checked
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                isChecked = true; // At least one checkbox is checked
+            }
+        });
+
+        // Show or hide the error message based on selection
+        if (!isChecked) {
+            errorMessage.style.display = 'block'; // Show error message
+            return false; // Prevent form submission
+        } else {
+            errorMessage.style.display = 'none'; // Hide error message
+            return true; // Allow form submission
+        }
+    }
+</script>
+
+</body>
+</html>
