@@ -1,3 +1,4 @@
+// Function to get query parameters from the URL
 function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -5,6 +6,7 @@ function getQueryParams() {
     };
 }
 
+// Function to set selected interests based on URL parameters
 function setSelectedInterests() {
     const { interests } = getQueryParams();
     const checkboxes = document.querySelectorAll('.mentoring-area-checkbox-label input');
@@ -16,9 +18,7 @@ function setSelectedInterests() {
     });
 }
 
-// Call the function to set the selected interests on page load
-window.onload = setSelectedInterests;
-
+// Function to filter profiles based on selected agencies and interests
 function filterProfiles() {
     const agencyCheckboxes = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const selectedAgencies = Array.from(agencyCheckboxes)
@@ -33,27 +33,50 @@ function filterProfiles() {
     const profileElements = document.querySelectorAll('.profile');
 
     profileElements.forEach(profile => {
-        const profileAgencies = profile.getAttribute('data-agencies').split(', ');
-        const profileInterests = profile.getAttribute('data-mentoring-areas').split(', ');
+        const profileAgencies = profile.getAttribute('data-agencies')?.split(', ') || [];
+        const profileInterests = profile.getAttribute('data-mentoring-areas')?.split(', ') || [];
 
         const agencyMatch = selectedAgencies.length === 0 || selectedAgencies.some(agency => profileAgencies.includes(agency));
         const interestMatch = selectedInterests.length === 0 || selectedInterests.some(interest => profileInterests.includes(interest));
 
+        // Show the profile if both agency and interest match
         if (agencyMatch && interestMatch) {
-            profile.style.display = ''; // Show if both match
+            profile.style.display = ''; // Show profile
         } else {
-            profile.style.display = 'none'; // Hide if not both match
+            profile.style.display = 'none'; // Hide profile
         }
     });
 }
 
+// Function to reset filters
 function resetFilters() {
-    // Select all checkboxes within the filters and uncheck them
     const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.checked = false; // Uncheck each checkbox
     });
 
-    // Call filterProfiles to update displayed profiles based on the reset state
-    filterProfiles();
+    filterProfiles(); // Update displayed profiles based on the reset state
 }
+
+// Add event listeners to mentoring buttons
+function addMentoringButtonListeners() {
+    const mentoringButtons = document.querySelectorAll('.mentoring-btn');
+
+    mentoringButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedInterest = button.value; // Get the value of the button (interest)
+            const interestCheckbox = document.querySelector(`.mentoring-area-checkbox-label input[type="checkbox"][value="${selectedInterest}"]`);
+            if (interestCheckbox) {
+                interestCheckbox.checked = !interestCheckbox.checked; // Toggle the checkbox
+            }
+            filterProfiles(); // Re-filter profiles based on the current selections
+        });
+    });
+}
+
+// Call the function to add event listeners when the page loads
+window.onload = function() {
+    setSelectedInterests();
+    addMentoringButtonListeners(); // Initialize button listeners
+    filterProfiles(); // Initial filter based on any preset selections
+};
