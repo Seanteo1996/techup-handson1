@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Leadership Mentoring Programme</title>
-    <link rel="icon" href="assets/snlogo-removebg-preview.png" type="image/x-icon"> <!-- Link to favicon -->
+    <title>Mentee Details</title>
+    <link rel="icon" href="../assets/snlogo-removebg-preview.png" type="image/x-icon"> <!-- Link to favicon -->
     <link rel="stylesheet" href="mentee form.css">
 </head>
 
@@ -12,12 +12,12 @@
 
 <header>
     <div class="header-content">
-        <img src="assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
+        <img src="../assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
         <h1>Tech Leadership Mentoring Programme</h1>
     </div>    
 </header>   
 
-<script type = "text/javascript" src="mentee form script.js"></script> 
+<script src="mentee form script.js"></script> 
 
 <form class="contact-form" onsubmit="return validateForm()"> 
     <div class="question">
@@ -26,12 +26,12 @@
 
         <div class="question">
             <h3>First Name:</h3>
-            <input type="text" id="first name" name="first name" required placeholder="Enter your first name">
+            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
         </div>
 
         <div class="question">
             <h3>Last Name:</h3>
-            <input type="text" id="last name" name="last name" required placeholder="Enter your last name">
+            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
         </div>
    
 
@@ -43,8 +43,10 @@
  
         <div class="question">
             <h3>Agency:</h3>
+            <p style="font-size: 0.9em; margin-top: 0;">If unable to find your agency, select 'Others'</p>
             <div class="dropdown">
-                <input type="text" id="agency-input" placeholder="Type to search for your agency" onkeyup="filterAgencies()" oninput="checkAgency()" required>                <div id="agency-list" class="dropdown-list">
+                <input type="text" id="agency-input" placeholder="Type to search for your agency" onkeyup="filterAgencies()" oninput="checkAgency()" required>
+                <div id="agency-list" class="dropdown-list">
                     <div class="dropdown-item" onclick="selectAgency('A*STAR')">A*STAR</div>
                     <div class="dropdown-item" onclick="selectAgency('CAAS')">CAAS</div>
                     <div class="dropdown-item" onclick="selectAgency('CPFB')">CPFB</div>
@@ -92,13 +94,14 @@
                     <div class="dropdown-item" onclick="selectAgency('Synapxe')">Synapxe</div>
                     <div class="dropdown-item" onclick="selectAgency('URA')">URA</div>
                     <div class="dropdown-item" onclick="selectAgency('others')">Others</div>
+                </div>
             </div>
         </div>
 
         <div class="question" id="other-agency-question" style="display: none;">
             <h3>If Others, please specify:</h3>
-            <input type="text" id="agency-input" placeholder="Enter your agency" onkeyup="filterAgencies(); checkAgency()" oninput="checkAgency()" required>
-        </div>        
+            <input type="text" id="other-agency-input" placeholder="Enter your agency" onkeyup="checkAgency()" required>
+        </div>    
 
         <div class="question">
                 <h3>Which areas are you keen on being mentored in?</h3>

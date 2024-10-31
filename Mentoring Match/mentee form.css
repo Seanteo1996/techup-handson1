@@ -1,6 +1,6 @@
 body {
     font-family: 'Calibri', sans-serif;
-    background-image: url('assets/mentoring bg.png'); /* Change to your image path */
+    background-image: url('../assets/mentoring bg.png'); /* Change to your image path */
     background-size: cover; /* This will cover the entire area */
     background-position: left top; /* Center the image */
     background-repeat: no-repeat; /* Prevent the image from repeating */
@@ -192,4 +192,14 @@ input[type="text"] {
 
 .dropdown-list .dropdown-item:hover {
     background-color: #f0f0f0; /* Highlight on hover */
+}
+
+header h1 {
+    font-size: 24px; /* Consider adjusting this if needed */
+}
+h2 {
+    font-size: 24px; /* Match the header size or choose your desired size */
+}
+h3 {
+    font-size: 20px; /* Example for another heading */
 }
