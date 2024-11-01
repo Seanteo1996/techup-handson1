@@ -34,7 +34,7 @@ header {
 .filters {
     padding: 10px;
     border-right: 1px solid #ccc;
-    width: 500px; /* Fixed width */
+    width: 550px; /* Fixed width */
     height: 1000px; /* Full height of the container */
     overflow-y: auto; /* Enable vertical scrolling if needed */
     background: rgba(255, 255, 255, 0.8); 
@@ -81,7 +81,7 @@ header {
     transition: box-shadow 0.3s; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
     height: 500px;
-    width:380px;
+    width:365px;
     border: 2px solid #72bdff; /* Bright blue border */
     position: relative; /* Position relative for child absolute positioning */
 }
