@@ -1,7 +1,7 @@
 body { 
     font-family: 'Calibri', sans-serif; 
     margin: 0;
-    padding: 0; /* Remove padding to ensure the body image aligns with the top */
+    padding: 0; 
     background-image: url('../assets/mentoring bg.png'); 
     background-size: 100% 100%; 
     background-position: left top; 
@@ -15,233 +15,286 @@ header {
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    z-index: 1000; /* Ensure the header stays on top */
-    position: relative; /* Position relative for z-index to work */
+    z-index: 1000; 
+    position: relative; 
     margin-bottom: 30px;
 }
 
 .container {
     display: flex;
-    max-width: 1850px; 
-    height: 1000px; /* Keep fixed height */
+    max-width: 1700px; 
+    height: 1100px; 
     margin: 0px auto; 
     background: rgba(255, 255, 255, 0.9); 
     border-radius: 8px;
-    overflow: hidden; /* Hide overflow */
+    overflow: hidden; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .filters {
     padding: 10px;
     border-right: 1px solid #ccc;
-    width: 550px; /* Fixed width */
-    height: 1000px; /* Full height of the container */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
+    width: 550px; 
+    height: 1100px; 
+    overflow-y: auto; 
     background: rgba(255, 255, 255, 0.8); 
-    margin: 0px
+    margin: 0px;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Or any specific height */
+    justify-content: space-between; /* Pushes pagination to the bottom */
+
 }
 
 .results {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 40px; /* Space between grid items */
-    padding: 20px; /* Add padding to results */
-    margin: 10px auto; /* Center the container */
-    max-width: 1200px; /* Adjust max-width as needed */
-    justify-items: center; /* Center items in each grid cell */
-    overflow-y: auto; /* Allow vertical scrolling */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; 
+    padding: 10px; 
+    margin: 10px auto; 
+    width: 1200px; 
+    justify-items: center; 
+    overflow-y: auto; 
+    height: 1050px; 
 }
 
+.profile {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #f9f9f9, #e9e9e9); 
+    transition: box-shadow 0.3s; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    height: 470px;
+    width: 365px;
+    border: 2px solid #72bdff; 
+    position: relative; 
+}
 
+.profile-pic {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 15px; 
+}
+
+.profile-info {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    margin: 0; 
+}
+
+.profile-info h3 {
+    margin: 0; 
+    font-size: 1.8em; 
+    align-items: center;
+    font-weight: 600; 
+}
+
+.title {
+    font-size: 1.5em; 
+    color: #333; 
+    margin: 2px 0;
+    font-weight: 500; 
+}
+
+.agencies {
+    font-size: 1.2em; 
+    color: #333; 
+    margin: 2px 0; 
+}
+
+.contact-btn {
+    padding: 12px 24px; 
+    border-radius: 8px; 
+    background-color: #1E88E5; 
+    color: white; 
+    transition: background-color 0.3s, transform 0.2s; 
+    margin-top: auto; 
+    width: auto;
+    font-size: 18px; 
+}
+
+.contact-btn:hover {
+    background-color: #1565C0; 
+    transform: translateY(-2px); 
+}
+
+.checkbox-row {
+    display: flex; 
+    flex-wrap: wrap; 
+    margin-bottom: 10px; 
+}
+
+.checkbox-row .filter-label {
+    width: calc(33.33% - 20px); 
+    padding: 0 0px; 
+    box-sizing: border-box; 
+}
+
+.filter-label input {
+    margin-right: 8px; 
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    width: 100%; 
+}
+
+.agency-checkbox-label {
+    width: calc(33.33% - 20px); 
+    padding: 5px; 
+    margin: 0 5px; 
+}
+
+.mentoring-area-checkbox-label {
+    width: calc(50% - 20px); 
+    padding: 5px; 
+    margin: 0 5px; 
+}
+
+.filter-label {
+    font-size: 14px; 
+    margin-bottom: 10px; 
+    display: flex; 
+    align-items: center; 
+}
+
+#resetButton {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    background-color: #FF5733; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+#resetButton:hover {
+    background-color: #C70039; 
+}
+
+.header-content {
+    display: flex; 
+    align-items: center; 
+}
+
+header img {
+    height: 70px; 
+    margin-right: 20px; 
+}
+
+header h1 {
+    font-size: 30px; 
+}
+
+h2 {
+    font-size: 24px; 
+}
+
+h3 {
+    font-size: 20px; 
+}
+
+.profile-info h3, .title, .agencies, .mentoring-areas {
+    margin-bottom: 5px; 
+}
+
+.mentoring-areas {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin: 2px 0; 
+}
+
+.mentoring-btn {
+    padding: 3px 3px; 
+    border-radius: 5px; 
+    background-color: #72bdff; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    margin: 2px; 
+    transition: background-color 0.3s; 
+}
+
+.mentoring-btn:hover {
+    background-color: #1E88E5; 
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    height:50px;
+    margin: 0px;
+}
+
+.pagination-controls button {
+    padding: 2px 5px; /* Adjust padding to make buttons smaller */
+    font-size: 12px; /* Decrease font size */
+    margin: 0px 20px; /* Margin between buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: #1E88E5; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    height: 30px;
+    width: 70px;
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc; /* Color for disabled buttons */
+    cursor: not-allowed; /* Change cursor for disabled buttons */
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional: Style for active page */
+.pagination-controls .active {
+    background-color: #007BFF; 
+    font-weight: bold; 
+    transform: scale(1.05); 
+}
+
+#paginationControls {
+    display: flex; /* Ensure it’s displayed */
+    justify-content: center;
+    margin-top: 20px; /* Ensure it has space above */
+}
 
 /* Adjust media queries if necessary */
 @media (max-width: 768px) {
     .profile {
-        flex: 0 1 calc(50% - 10px); /* 2 profiles per row */
+        flex: 0 1 calc(50% - 10px); 
         max-width: calc(50% - 10px);
     }
 }
 
 @media (max-width: 480px) {
     .profile {
-        flex: 0 1 calc(100% - 10px); /* 1 profile per row */
+        flex: 0 1 calc(100% - 10px); 
         max-width: 100%;
     }
 }
 
-.profile {
-    display: flex; /* Use flexbox to align items */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align items horizontally */
-    padding: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: linear-gradient(145deg, #f9f9f9, #e9e9e9); /* Light gradient */
-    transition: box-shadow 0.3s; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    height: 500px;
-    width:365px;
-    border: 2px solid #72bdff; /* Bright blue border */
-    position: relative; /* Position relative for child absolute positioning */
-}
-
-.profile-pic {
-    width: 150px; /* Adjust as needed */
-    height: 150px; /* Equal height for a circle */
-    border-radius: 50%; /* Circular shape */
-    object-fit: cover; /* Maintain aspect ratio */
-    margin-bottom: 15px; /* Add space below */
-}
-
-.profile-info {
-    flex-direction: column; /* Stack text vertically */
-    align-items: center; /* Center text items */
-    text-align: center; /* Center text */
-    margin: 0; /* Remove outer margin */
-}
-
-.profile-info h3 {
-    margin: 0; /* Remove default margin */
-    font-size: 1.8em; /* Larger font size for name */
-    align-items: center;
-    font-weight: 600; /* Bolder font */
-
-}
-
-.title {
-    font-size: 1.5em; /* Size for title */
-    color: #333; /* Darker color for title */
-    margin: 2px 0;
-    font-weight: 500; /* Semi-bold title */
-}
-
-.agencies {
-    font-size: 1.2em; /* Font size for details */
-    color: #333; /* Darker color */
-    margin: 2px 0; /* Reduced margin */
-}
-
-.contact-btn {
-    padding: 12px 24px; /* Slightly larger padding */
-    border-radius: 8px; /* More rounded corners */
-    background-color: #1E88E5; /* Bright blue button */
-    color: white; /* Text color */
-    transition: background-color 0.3s, transform 0.2s; /* Add transition */
-    margin-top: auto; /* Push button to the bottom */
-    width: 250px;
-}
-
-.contact-btn:hover {
-    background-color: #1565C0; /* Darker blue on hover */
-    transform: translateY(-2px); /* Lift effect */
-}
-
-
-.checkbox-row {
-    display: flex; /* Use flexbox to arrange items */
-    flex-wrap: wrap; /* Allow items to wrap */
-    margin-bottom: 10px; /* Space between rows */
-}
-
-.checkbox-row .filter-label {
-    width: calc(33.33% - 20px); /* Adjust width */
-    padding: 0 0px; /* Padding for spacing */
-    box-sizing: border-box; /* Include padding in width calculation */
-}
-
-.filter-label input {
-    margin-right: 8px; /* Space between checkbox and label text */
-}
-
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: flex-start; /* Align items to the start */
-    width: 100%; /* Full width */
-}
-
-/* Agencies section */
-.agency-checkbox-label {
-    width: calc(33.33% - 20px); /* 3 labels per row */
-    padding: 5px; /* Space around checkboxes */
-    margin: 0 5px; /* Add horizontal margin for extra space */
-}
-
-/* Mentoring Areas section */
-.mentoring-area-checkbox-label {
-    width: calc(50% - 20px); /* 2 labels per row */
-    padding: 5px; /* Space around checkboxes */
-    margin: 0 5px; /* Add horizontal margin for extra space */
-}
-
-.filter-label {
-    font-size: 14px; /* Slightly larger for readability */
-    margin-bottom: 10px; /* Space between options */
-    display: flex; /* Align checkbox and label */
-    align-items: center; /* Center vertically */
-}
-
-#resetButton {
-   
-    padding: 10px 20px; /* Padding inside the button */
-    font-size: 16px; /* Font size */
-    background-color: #FF5733; /* Button color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Change cursor on hover */
-}
-
-#resetButton:hover {
-    background-color: #C70039; /* Darker color on hover */
-}
-
-.header-content {
-    display: flex; /* Use flexbox for header content */
-    align-items: center; /* Center items vertically */
-}
-
-header img {
-    height: 70px; /* Set height for the logo */
-    margin-right: 20px; /* Space between logo and title */
-}
-
-header h1 {
-    font-size: 30px; /* Consider adjusting this if needed */
-}
-
-h2 {
-    font-size: 24px; /* Match the header size or choose your desired size */
-}
-
-h3 {
-    font-size: 20px; /* Example for another heading */
-}
-
-.profile-info h3, .title, .agencies, .mentoring-areas {
-    margin-bottom: 5px; /* Add space below each text element */
-}
-
-.mentoring-areas {
-    display: flex; /* Use flexbox to align buttons */
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center; /* Center buttons horizontally */
-    margin: 5px 0; /* Reduced space above and below */
-}
-
-.mentoring-btn {
-    padding: 3px 3px; /* Padding for the button */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #72bdff; /* Match your theme */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    cursor: pointer; /* Pointer cursor on hover */
-    margin: 3px; /* Reduced space between buttons */
-    transition: background-color 0.3s; /* Transition effect */
-}
-
-.mentoring-btn:hover {
-    background-color: #1E88E5; /* Darker blue on hover */
+.pagination-controls span {
+    font-size: 18px; /* Adjust the font size as needed */
+    margin: 0px; /* Add margin for spacing */
+    color: #333; /* Change the text color if desired */
+    padding-top:3px;
 }
 

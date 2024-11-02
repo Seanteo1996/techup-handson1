@@ -6,148 +6,109 @@
     <title>Mentor Results</title>
     <link rel="icon" href="../assets/snlogo-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="result page.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 </head>
 
 <body>
-
     <header>
         <div class="header-content">
-            <img src="../assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
+            <img src="../assets/snlogo.png" alt="Mentorship Image">
             <h1>Mentor Results</h1>
-        </div>    
-    </header>      
+        </div>
+    </header>
 
-    <div class="container">
-        <div class="filters">
+    <main class="container">
+        <aside class="filters">
             <h2>Filters</h2>
-
-            <h3>Agencies</h3>
-            <div class="checkbox-group">
-                <div class="checkbox-row">
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> A*STAR</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CAAS</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CPFB</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CSC</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CSA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CSIT</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> DIS</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> DSTA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> EDB</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Enterprise SG</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> GovTech</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> HDB</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> HTX</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> ICSA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> IMDA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> IRAS</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> JTC</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> LTA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MAS</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MCCY</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MDDI (SNDGO)</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MDDI (non-SNDGO)</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MFA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MHA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MINDEF</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MND</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOE</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOF</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOH</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOM</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOT</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MPA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MSE</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MSF</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> NLB</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> NRF</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> PMO</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> PSD</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> PUB</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Sentosa</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> SLA</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> SSG</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> STB</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> SUPCOURT</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Synapxe</label>
-                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> URA</label>
+            <section>
+                <h3>Agencies</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-row">
+                        <!-- Using a data attribute for better organization -->
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> A*STAR</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CAAS</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CPFB</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CSC</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CSA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CSIT</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> DIS</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> DSTA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> EDB</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Enterprise SG</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> GovTech</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> HDB</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> HTX</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> ICSA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> IMDA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> IRAS</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> JTC</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> LTA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MAS</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MCCY</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MDDI (SNDGO)</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MDDI (non-SNDGO)</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MFA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MHA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MINDEF</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MND</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOE</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOF</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOH</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOM</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MOT</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MPA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MSE</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> MSF</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> NLB</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> NRF</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> PMO</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> PSD</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> PUB</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Sentosa</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> SLA</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> SSG</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> STB</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> SUPCOURT</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Synapxe</label>
+                        <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> URA</label>
+                    </div>
                 </div>
-                
-            </div>
-            
-            <h3>Mentoring Areas</h3>
-            <div class="checkbox-group">
-                <div class="checkbox-row">
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> AI & Machine Learning</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Career Development</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Cloud Computing</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Cybersecurity</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Software Engineering</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Web Development</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Data Science & Analytics</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Mobile App Development</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Leadership and Management</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Tech Policy Management</label>
-                    <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> User Experience (UX) and User Interface (UI) Design</label>
-                </div>    
-            </div>
-            
+            </section>
+
+            <section>
+                <h3>Mentoring Areas</h3>
+                <div class="checkbox-group">
+                    <div class="checkbox-row">
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> AI & Machine Learning</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Career Development</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Cloud Computing</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Cybersecurity</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Software Engineering</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Web Development</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Data Science & Analytics</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Mobile App Development</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Leadership and Management</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> Tech Policy Management</label>
+                        <label class="checkbox-label mentoring-area-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> User Experience (UX) and User Interface (UI)</label>
+                    </div>
+                </div>
+            </section>
+
             <button id="resetButton" onclick="resetFilters()">Clear All</button>
-        </div>
+        </aside>
 
-        <div class="results" id="resultsContainer">
-            <div class="profile" data-agencies="A*STAR" data-mentoring-areas="AI & Machine learning,Career Development,Cloud Computing">
-                <img src="../assets/boba me.jpg" alt="John Doe" class="profile-pic">
-                <div class="profile-info">
-                    <h3>John Doe</h3>
-                    <p class="title">Software Engineer</p>
-                    <p class="agencies">A*STAR</p>
-                </div>
-                <div class="mentoring-areas">
-                    <button class="mentoring-btn" value="AI & Machine Learning">AI & Machine Learning</button>
-                    <button class="mentoring-btn" value="Career Development">Career Development</button>
-                    <button class="mentoring-btn" value="Cloud Computing">Cloud Computing</button>
-                </div>  
-                <button class="contact-btn">Contact</button>
-            </div>
-
-            <div class="profile" data-agencies="CAAS" data-mentoring-areas="Cybersecurity,Web Development,Software Engineering,Data Sceience & Analytics">
-                <img src="../assets/boba me.jpg" alt="Jane Smith" class="profile-pic">
-                <div class="profile-info">
-                    <h3>Jane Smith</h3>
-                    <p class="title">Product Manager</p>
-                    <p class="agencies">CAAS</p>
-                </div>
-                <div class="mentoring-areas">
-                    <button class="mentoring-btn" value="Cybersecurity">Cybersecurity</button>
-                    <button class="mentoring-btn" value="Software Engineering">Software Engineering</button>
-                    <button class="mentoring-btn" value="Web Development">Web Development</button>
-                    <button class="mentoring-btn" value="Data Science & Analytics">Data Science & Analytics</button>
-                </div>    
-                <button class="contact-btn">Contact</button>
-            </div>
-
-            <div class="profile" data-agencies="DIS" data-mentoring-areas="Mobile App Development, Leadership and Managementm,Tech Policy Management, User Experience (UX) and User Interface (UI) Design">
-                <img src="../assets/boba me.jpg" alt="Alice Johnson" class="profile-pic">
-                <div class="profile-info">
-                    <h3>Alice Johnson</h3>
-                    <p class="title">Data Scientist</p>
-                    <p class="agencies">DIS</p>
-                </div>
-                <div class="mentoring-areas">
-                    <button class="mentoring-btn" value="Mobile App Development">Mobile App Development</button>
-                    <button class="mentoring-btn" value="Leadership and Management">Leadership and Management</button>
-                    <button class="mentoring-btn" value="Tech Policy Management">Tech Policy Management</button>
-                    <button class="mentoring-btn" value="User Experience (UX) and User Interface (UI) Design">User Experience (UX) and User Interface (UI) Design</button>
-                </div>    
-                <button class="contact-btn">Contact</button>
-            </div>
-
-            <!-- Add more profiles as needed -->
-        </div>
+        <div class="results-container">
+            <div class="results" id="resultsContainer">
         
-    </div>
- 
-    <script src="mentor script.js"></script> 
+            <!-- Profiles will be populated here dynamically -->
+             </div>
+        
+            <div id="paginationControls" class="pagination-controls">
+                <!-- Pagination controls will be populated here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <script src="mentor script.js"></script>
 </body>
 </html>
