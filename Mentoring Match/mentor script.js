@@ -4,11 +4,47 @@ let originalProfiles = []; // Store the original profiles for resetting filters
 let currentPage = 1; // Track the current page
 const profilesPerPage = 6; // Number of profiles per page
 
-document.addEventListener('DOMContentLoaded', function () {
-    fetchExcelData(); // Fetch Excel data on page load
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await fetchExcelData(); // Fetch Excel data on page load
     setupFilterListeners(); // Setup listeners for filter inputs
+
+    // Check for selected interests in the query parameters
+    const interests = getQueryParam('interests');
+    if (interests) {
+        console.log('Interests from query parameters:', interests); // Log the raw interests
+        const selectedInterests = interests.split(','); // Split by comma
+        console.log('Selected Interests:', selectedInterests); // Log the array of selected interests
+        
+        // Optionally set the filters visually on the UI
+        setPresetFilters(selectedInterests);
+        applyFilters();
+    }
 });
 
+function setPresetFilters(selectedInterests) {
+    const checkboxes = document.querySelectorAll('input[name="interests"]');
+    console.log('Checkboxes', checkboxes);
+    checkboxes.forEach(checkbox => {
+        // Check the checkbox if it matches a selected interest
+        if (selectedInterests.includes(checkbox.value)) {
+            checkbox.checked = true;
+            console.log(`Checked checkbox: ${checkbox.value}`); // Log checked checkboxes
+        }
+    });
+
+    // Optionally, ensure the area checkboxes are also set
+    const areaCheckboxes = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
+    areaCheckboxes.forEach(areaCheckbox => {
+        if (selectedInterests.includes(areaCheckbox.value)) {
+            areaCheckbox.checked = true; // Check the area checkbox if it matches a selected interest
+        }
+    });
+}
 // Fetch the Excel file from the repository
 async function fetchExcelData() {
     try {
@@ -170,11 +206,17 @@ function setupFilterListeners() {
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
 
     agencyFilters.forEach(input => {
-        input.addEventListener('change', applyFilters);
+        input.addEventListener('change', () => {
+            console.log('Agency Filters:', Array.from(agencyFilters).filter(i => i.checked).map(i => i.nextSibling.nodeValue.trim()));
+            applyFilters();
+        });
     });
 
     areaFilters.forEach(input => {
-        input.addEventListener('change', applyFilters);
+        input.addEventListener('change', () => {
+            console.log('Area Filters:', Array.from(areaFilters).filter(i => i.checked).map(i => i.nextSibling.nodeValue.trim()));
+            applyFilters();
+        });
     });
 }
 
@@ -185,6 +227,9 @@ function applyFilters() {
 
     const selectedAgencies = Array.from(agencyFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
     const selectedAreas = Array.from(areaFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
+
+    // Log selected areas to the console
+    console.log('Selected Areas:', selectedAreas);
 
     // Filter profiles based on selected criteria
     allProfiles = originalProfiles.filter(profile => {
