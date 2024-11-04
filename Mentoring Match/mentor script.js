@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Optionally set the filters visually on the UI
         setPresetFilters(selectedInterests);
-        applyFilters();
+        applyFilters()
     }
 });
 
