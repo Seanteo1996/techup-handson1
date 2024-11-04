@@ -24,6 +24,7 @@ function validateForm() {
     if (!isChecked) {
         checkboxErrorMessage.style.display = 'block'; // Show checkbox error
         return false; // Prevent form submission
+        
     }
 
     // Collect checked interests
@@ -94,24 +95,10 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-// Function to filter profiles based on selected interests
-function filterProfilesByInterests(selectedInterests) {
-    const profiles = document.querySelectorAll('.profile');
-    profiles.forEach(profile => {
-        const mentoringAreas = profile.getAttribute('data-mentoring-areas').split(', '); // Assuming areas are separated by commas
-        if (mentoringAreas.some(area => selectedInterests.includes(area))) {
-            profile.style.display = 'block'; // Show profile
-        } else {
-            profile.style.display = 'none'; // Hide profile
-        }
-    });
-}
-
 // On page load, filter profiles based on interests
-document.addEventListener('DOMContentLoaded', () => {
-    const interests = getQueryParam('interests');
-    if (interests) {
-        const selectedInterests = interests.split(','); // Split by comma
-        filterProfilesByInterests(selectedInterests);
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Your code here
+    console.log('Page has loaded');
+    // You can call your function here
+   checkAgency();
 });
