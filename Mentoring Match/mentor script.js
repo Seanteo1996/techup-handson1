@@ -237,7 +237,7 @@ function applyFilters() {
         const profileAreas = profile.getAttribute('data-mentoring-areas').split(', ');
 
         const agencyMatch = selectedAgencies.length === 0 || selectedAgencies.some(agency => profileAgencies.includes(agency));
-        const areaMatch = selectedAreas.length === 0 || selectedAreas.every(area => profileAreas.includes(area));
+        const areaMatch = selectedAreas.length === 0 || selectedAreas.some(area => profileAreas.includes(area));
 
         return agencyMatch && areaMatch;
     });
