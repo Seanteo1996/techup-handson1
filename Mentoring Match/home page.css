@@ -15,17 +15,31 @@ a {
     color: inherit;
 }
 
-/* Header Styles */
 header {
-    background-color: white;
-    color: black;
-    padding: 1rem 0;
+    background-color: #fff; /* Optional, set a background color */
+    padding: 20px; /* Adjust the padding as necessary */
 }
 
-header img {
-    width: 150px;
+nav {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: flex-start; /* Align the content to the left */
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Vertically center the image and text */
+    gap: 15px; /* Space between the image and text */
+}
+
+.logo img {
+    width: 150px; /* Adjust the image size as necessary */
     height: auto;
 }
+
+
+
+
 
 header nav {
     display: flex;
@@ -35,8 +49,11 @@ header nav {
 }
 
 header .logo h1 {
-    font-size: 24px;
+    font-family: 'Lato', sans-serif; /* Apply the Lato font */
+    font-size: 36px; /* Adjust the size as necessary */
     font-weight: bold;
+    color: #000000; /* Optional: Adjust text color */
+    font-weight: bold; /* Optional: Make the text bold */
 }
 
 header ul {

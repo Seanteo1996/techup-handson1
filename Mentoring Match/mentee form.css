@@ -30,9 +30,11 @@ header img {
 }
 
 h1 {
-    font-size: 5em; /* Adjust the size as needed */
-    font-weight: bold; /* Optional, to make it bolder */
+    font-family: 'Lato', sans-serif; /* Apply the Lato font */
+    font-size: 36px; /* Adjust the size as necessary */
+    color: #000000; /* Optional: Adjust text color */
 }
+
 
 h2 {
     text-align: center;
