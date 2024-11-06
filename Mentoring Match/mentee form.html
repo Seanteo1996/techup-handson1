@@ -13,7 +13,7 @@
 <header>
     <div class="header-content">
         <img src="../assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
-        <h1>Tech Leadership Mentoring Programme</h1>
+        <h1>Tech Mentoring Programme in ICT&SS</h1>
     </div>    
 </header>   
 
@@ -37,7 +37,7 @@
 
         <div class="question">
             <h3>Work Email:</h3>
-            <input type="text" id="email" name="email" required placeholder="Enter your work email">
+            <input type="email" id="email" name="email" required placeholder="youremail@example.gov.sg" required>
             <span id="email-error-message" style="color: red; display: none;">Invalid email. Please enter a valid work email.</span>
         </div>
  
@@ -125,6 +125,10 @@
     <button type="submit">Submit</button> 
 
 </form>
+
+<div class="loading" id="loadingMessage" style="display: none;">
+    <div class="spinner"></div>
+    <p>Finding Mentors for you...</p>
 
 <script>
     function validateCheckboxes() {

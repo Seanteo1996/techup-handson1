@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-top: 20px;  /* Increased margin to add more padding at the top */
+}
+
+.mentor-profile {
+    text-align: center;
+    margin-top: 20px;
+}
+.mentor-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+}
+.mentor-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 10px;
+}
+
+/* Confirmation Details */
+.confirmation-details {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+}
+
+.details span {
+    font-weight: bold;
+    color: #333;
+}
+
+.details .value {
+    color: #555;
+}
+
+/* Align the details to the left */
+
+.details-session-time {
+    display: flex;
+    justify-content: space-between; /* Optional: to add space between the two items */
+    align-items: center; /* Aligns the items vertically in the middle */
+}
+.details-session-time div {
+    margin-right: 10px; /* Optional: Add spacing between the two elements */
+}
+
+.details-venue {
+    text-align: left;  /* Align text to the left */
+}
+
+/* Centralized message */
+.centralized-message {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-top: 30px;
+    font-style: italic;
+}

@@ -8,8 +8,12 @@ body {
     background-repeat: no-repeat; 
     background-color: #f0f4f8; 
     width: 100%;
-    height:100%;
-    transform-origin: 50%;
+    height: 100%; /* Full viewport height */
+    overflow: hidden; /* Prevent scrolling */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    flex-direction: column; /* Stack the header on top of the container */
 }
 
 header {
@@ -19,55 +23,114 @@ header {
     align-items: center; 
     justify-content: space-between; 
     z-index: 1000; 
-    position: relative; 
-    margin-bottom: 30px;
+    position: relative; /* Keeps the header in the normal document flow */
+    margin-bottom: 30px; /* Space below the header */
     width: 100%;
-    height:100%;
 }
 
 .container {
     display: flex;
-    width: 100%; /* Set to 100% to fill the width */
+    width: 100%;
     height: 100%; 
-    margin: 0; /* Remove margin */
+    margin: 0; 
     background: rgba(255, 255, 255, 0.9); 
     border-radius: 8px;
     overflow: hidden; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     padding: 0;
-    transform-origin: 100%;
+    transform-origin: top center; /* Scale from the top left corner */
+    transform: scale(0.8); /* Zoom out to 80% */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .filters {
     padding: 10px;
     border-right: 1px solid #ccc;
-    width: 21%; 
-    height: 100%; 
+    width: 100%; /* Set initial width */
+    height: 100%; /* Full height */
     overflow-y: auto; 
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.9); /* Same translucent background as results container */
+    transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* When filter panel is hidden */
+.filters.hidden {
+    display: none;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between; /* Distribute space between the elements */
+    align-items: center; /* Vertically center the items */
+    width: 100%; /* Ensure the header takes full width */
+    padding: 10px;
     margin: 0px;
+    background: rgba(255, 255, 255, 0.9); /* Same translucent background as results container */
+    border-right: 1px solid #ccc;
+}
+
+.filter-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.filter-button {
+    background-color: transparent; 
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.filter-icon {
+    width: 30px; 
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.filter-button:hover .filter-icon {
+    transform: scale(1.1);
+}
+
+.results-container.full-width {
+    width: 100%; 
+    margin-left: 0; 
 }
 
 .results-container {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Or any specific height */
-    justify-content: space-between; /* Pushes pagination to the bottom */
-    width: 70%;
-    margin-left:70px;
+    justify-content: space-between;
+    width: 80%; /* Make the results container take full width */
+    height: 100%;
+    margin-left: 70px;
+    transition: width 0.3s ease;
+}
 
+.filter-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.9);
+    width: 20%;
+    margin-left: 70px;
+
+    border-right: 1px solid #ccc;
 }
 
 .results {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 25px; 
+    gap: 20px; 
     padding: 10px; 
     margin: auto; 
     width: 100%; 
     justify-items: center; 
     overflow-y: auto; 
-    height: 50%; 
+    height: 100%;
 }
 
 .profile {
@@ -76,14 +139,13 @@ header {
     align-items: center; 
     padding: 20px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 2px solid #72bdff; 
     border-radius: 8px;
     background: linear-gradient(145deg, #f9f9f9, #e9e9e9); 
     transition: box-shadow 0.3s; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
-    height: 470px;
-    width: 400px;
-    border: 2px solid #72bdff; 
+    height: 100%;
+    width: 65%;
     position: relative; 
 }
 
@@ -123,7 +185,7 @@ header {
 }
 
 .contact-btn {
-    padding: 12px 24px; 
+    padding: 6px 12px; 
     border-radius: 8px; 
     background-color: #1E88E5; 
     color: white; 
@@ -131,6 +193,7 @@ header {
     margin-top: auto; 
     width: auto;
     font-size: 18px; 
+    padding:7px;
 }
 
 .contact-btn:hover {
@@ -142,16 +205,6 @@ header {
     display: flex; 
     flex-wrap: wrap; 
     margin-bottom: 10px; 
-}
-
-.checkbox-row .filter-label {
-    width: calc(33.33% - 20px); 
-    padding: 0 0px; 
-    box-sizing: border-box; 
-}
-
-.filter-label input {
-    margin-right: 8px; 
 }
 
 .checkbox-group {
@@ -180,6 +233,14 @@ header {
     align-items: center; 
 }
 
+.filter-actions {
+    display: flex; 
+    justify-content: flex-start; /* Align buttons to the left */
+    padding: 15px 0; /* Add some padding above and below the buttons */
+    margin-top: 20px; /* Space from other sections above */
+    gap: 15px; /* Space between buttons if you add more in the future */
+}
+
 #resetButton {
     padding: 10px 20px; 
     font-size: 16px; 
@@ -192,6 +253,7 @@ header {
 
 #resetButton:hover {
     background-color: #C70039; 
+    color: white; 
 }
 
 .header-content {
@@ -213,7 +275,8 @@ h2 {
 }
 
 h3 {
-    font-size: 20px; 
+    font-size: 1.2em; 
+    margin-top: 0px;
 }
 
 .profile-info h3, .title, .agencies, .mentoring-areas {
@@ -224,7 +287,7 @@ h3 {
     display: flex; 
     flex-wrap: wrap; 
     justify-content: center; 
-    margin: 2px 0; 
+    margin-bottom: 20px ; 
 }
 
 .mentoring-btn {
@@ -244,10 +307,12 @@ h3 {
 
 .pagination-controls {
     display: flex;
-    justify-content: center; /* Center the buttons horizontally */
-    height:10%;
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Align items vertically (optional) */
+    height: 5%;
     width: 100%;
-    margin: 0px;
+    margin: 10px;
+    padding: 0px;
 }
 
 .pagination-controls button {
@@ -256,12 +321,12 @@ h3 {
     margin: 0px 20px; /* Margin between buttons */
     border: none;
     border-radius: 5px;
-    background-color: #1E88E5; /* Button background color */
+    background-color:  #FF5733;  /* Button background color */
     color: white; /* Button text color */
     cursor: pointer; /* Change cursor on hover */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
     height: 30px;
-    width: 70px;
+    width: 5%;
 }
 
 .pagination-controls button:disabled {
@@ -270,29 +335,29 @@ h3 {
 }
 
 .pagination-controls button:hover:not(:disabled) {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #C70039; /* Darker blue on hover */
 }
 
-/* Optional: Style for active page */
 .pagination-controls .active {
-    background-color: #007BFF; 
+    background-color: #FF5733;
     font-weight: bold; 
     transform: scale(1.05); 
 }
 
-#paginationControls {
-    display: flex; /* Ensure it’s displayed */
-    justify-content: center;
-    margin-top: 20px; /* Ensure it has space above */
-    height: 100%;
-    width: 100%;
-}
-
-/* Adjust media queries if necessary */
+/* Media Queries for responsive design */
 @media (max-width: 768px) {
     .profile {
         flex: 0 1 calc(50% - 10px); 
         max-width: calc(50% - 10px);
+    }
+
+    .filters {
+        width: 30%;
+    }
+
+    .results-container {
+        width: 65%;
+        margin-left: 10px;
     }
 }
 
@@ -301,11 +366,20 @@ h3 {
         flex: 0 1 calc(100% - 10px); 
         max-width: 100%;
     }
+
+    .filters {
+        width: 100%; 
+    }
+
+    .results-container {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .pagination-controls span {
-    font-size: 18px; /* Adjust the font size as needed */
-    margin: 0px; /* Add margin for spacing */
-    color: #333; /* Change the text color if desired */
-    padding-top:3px;
+    font-size: 18px;
+    margin: 0px; 
+    color: #333; 
+    padding-top: 3px;
 }

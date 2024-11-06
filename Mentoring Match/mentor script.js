@@ -22,13 +22,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Optionally set the filters visually on the UI
         setPresetFilters(selectedInterests);
-        applyFilters()
+        applyFilters();
     }
 });
 
+// Set the filters based on query parameters (like 'interests')
 function setPresetFilters(selectedInterests) {
     const checkboxes = document.querySelectorAll('input[name="interests"]');
-    console.log('Checkboxes', checkboxes);
+    console.log('Checkboxes:', checkboxes);
     checkboxes.forEach(checkbox => {
         // Check the checkbox if it matches a selected interest
         if (selectedInterests.includes(checkbox.value)) {
@@ -37,7 +38,7 @@ function setPresetFilters(selectedInterests) {
         }
     });
 
-    // Optionally, ensure the area checkboxes are also set
+    // Ensure area checkboxes are also set
     const areaCheckboxes = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
     areaCheckboxes.forEach(areaCheckbox => {
         if (selectedInterests.includes(areaCheckbox.value)) {
@@ -45,6 +46,9 @@ function setPresetFilters(selectedInterests) {
         }
     });
 }
+
+
+
 // Fetch the Excel file from the repository
 async function fetchExcelData() {
     try {
@@ -62,6 +66,7 @@ async function fetchExcelData() {
     }
 }
 
+// Create profiles from fetched data
 function createProfiles(data) {
     allProfiles = []; // Reset all profiles
     const resultsContainer = document.getElementById('resultsContainer');
@@ -70,9 +75,8 @@ function createProfiles(data) {
     for (let i = 1; i < data.length; i++) {
         const profileData = data[i];
 
-        // Check if profile data contains valid information before proceeding
+        // Skip if essential data is missing
         if (!profileData[0] || !profileData[1] || !profileData[2] || !profileData[3]) {
-            // Skip if essential data like name, title, agencies, or mentoring areas are missing
             continue;
         }
 
@@ -80,73 +84,101 @@ function createProfiles(data) {
         profile.className = 'profile';
 
         // Set data attributes for filtering
-        profile.setAttribute('data-agencies', profileData[2]); // Adjust index as needed
-        profile.setAttribute('data-mentoring-areas', profileData[4]); // Adjust index as needed
+        profile.setAttribute('data-agencies', profileData[2]);
+        profile.setAttribute('data-mentoring-areas', profileData[4]);
 
-        // Create and set the profile image
+        // Create profile image
         const img = document.createElement('img');
-        img.src = profileData[5] || ''; // Assuming image URL is in index 4
+        img.src = profileData[5] || ''; // Assuming image URL is in index 5
         img.alt = 'Profile Image';
         img.className = 'profile-pic';
         profile.appendChild(img);
 
-        // Create and set the profile info container
+        // Profile info container
         const profileInfo = document.createElement('div');
         profileInfo.className = 'profile-info';
 
-        // Create and set the profile name
+        // Profile Name
         const name = document.createElement('h3');
-        name.textContent = `${profileData[0] || 'N/A'}`; // Assuming name is in index 0
+        name.textContent = `${profileData[0] || 'N/A'}`;
         profileInfo.appendChild(name);
 
-        // Create and set the profile title
+        // Profile Title
         const title = document.createElement('div');
         title.className = 'title';
-        title.textContent = `${profileData[1] || 'N/A'}`; // Assuming title is in index 1
+        title.textContent = `${profileData[1] || 'N/A'}`;
         profileInfo.appendChild(title);
 
-        // Create and set the agencies
+        // Agencies
         const agencies = document.createElement('div');
         agencies.className = 'agencies';
-        agencies.textContent = `${profileData[2] || 'N/A'}`; // Assuming agencies are in index 2
-        profileInfo.appendChild(agencies);
+        agencies.textContent = `${profileData[2] || 'N/A'}`;
+        profileInfo.appendChild(agencies);        
 
-        // Create and add mentoring areas
+        // Mentoring Areas
         const mentoringAreas = document.createElement('div');
         mentoringAreas.className = 'mentoring-areas';
-        const areas = profileData[4] ? profileData[4].split(', ') : []; // Assuming mentoring areas are in index 4
+        const areas = profileData[4] ? profileData[4].split(', ') : [];
         areas.forEach(area => {
             const mentoringBtn = document.createElement('button');
             mentoringBtn.className = 'mentoring-btn';
-            mentoringBtn.textContent = area; // Set button text
-            mentoringBtn.value = area; // Set value for filtering purposes
+            mentoringBtn.textContent = area;
+            mentoringBtn.value = area;
             mentoringBtn.addEventListener('click', () => {
                 console.log(`Selected Mentoring Area: ${area}`);
             });
             mentoringAreas.appendChild(mentoringBtn);
         });
 
-        // Add mentoring areas to the profile info
+        // Add mentoring areas to profile info
         profileInfo.appendChild(mentoringAreas);
         profile.appendChild(profileInfo);
 
-        // Create a contact button
+        // Create "Book a Mentor Chat" button
         const contactBtn = document.createElement('button');
         contactBtn.className = 'contact-btn';
-        contactBtn.textContent = profileData[6] || 'Contact'; // Set button text based on email (index 5)
+        contactBtn.textContent = 'Book a Mentor Chat'; // Fixed text for button
+
+        // Add event listener for the "Book a Mentor Chat" button
+        contactBtn.addEventListener('click', () => {
+            const mentorName = profileData[0];  // Name
+            const mentorTitle = profileData[1];  // Title
+            const mentorAgencies = profileData[2];  // Agencies
+            const mentorMentoringAreas = profileData[4];  // Mentoring Areas
+            const mentorEmail = profileData[6];  // Email (assuming it's in index 6)
+            const profileImage = profileData[5] || '';  // Profile image URL (assuming index 5)
+
+            // Get the user's email from local storage
+            const userEmail = localStorage.getItem('userEmail');
+
+            // Redirect to booking.html with mentor details and user email
+            const queryString = new URLSearchParams({
+                name: mentorName,
+                title: mentorTitle,
+                agencies: mentorAgencies,
+                mentoringAreas: mentorMentoringAreas,
+                email: mentorEmail,
+                profileImage: profileImage,
+                userEmail: userEmail  // Pass the user's email as a query parameter
+            }).toString();
+
+            // Redirect to the booking page
+            window.location.href = `booking.html?${queryString}`;
+        });
+
+        // Append the contact button
         profile.appendChild(contactBtn);
 
-        // Append the profile to the allProfiles array
+        // Append profile to the list of all profiles
         allProfiles.push(profile);
     }
 
     // Store a copy of the original profiles for resetting filters
     originalProfiles = [...allProfiles];
-    
+
     // Display the first page of profiles
     displayProfiles();
 }
-
 
 // Display profiles for the current page
 function displayProfiles() {
@@ -227,6 +259,7 @@ function setupFilterListeners() {
     });
 }
 
+// Apply filters based on selected criteria
 function applyFilters() {
     const agencyFilters = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
@@ -234,7 +267,6 @@ function applyFilters() {
     const selectedAgencies = Array.from(agencyFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
     const selectedAreas = Array.from(areaFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
 
-    // Log selected areas to the console
     console.log('Selected Areas:', selectedAreas);
 
     // Filter profiles based on selected criteria
@@ -248,11 +280,9 @@ function applyFilters() {
         return agencyMatch && areaMatch;
     });
 
-    // Reset current page and update displayed profiles
-    currentPage = 1;
+    currentPage = 1; // Reset to first page
     displayProfiles();
 }
-
 
 // Function to reset filters
 function resetFilters() {
@@ -263,3 +293,12 @@ function resetFilters() {
     currentPage = 1;
     displayProfiles();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve the user's email from local storage
+    const userEmail = localStorage.getItem('userEmail');
+    console.log("User email:", userEmail); // Log the email
+
+    // Store the email value in a hidden input (or in your data structure for use later)
+    // Optionally, you can pass it to the next page in the form submission or URL.
+});

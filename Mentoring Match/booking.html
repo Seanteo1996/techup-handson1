@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Chat Booking</title>
+    <link rel="stylesheet" href="booking.css">
+
+</head>
+    <link rel="icon" href="../assets/snlogo-removebg-preview.png" type="image/x-icon"> <!-- Link to favicon -->
+<body>
+
+    <div class="container">
+        <div class="mentor-info">
+            <h1>Book a Mentor Chat with</h1>
+            <div class="mentor-name" id="mentorName">[Mentor Name]</div>
+            <img id="mentorImage" src="" alt="Mentor Profile Picture">
+        </div>
+
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="timeSlot">Select a Time Slot</label>
+                <select id="timeSlot" name="timeSlot" required>
+                    <!-- Available time slots will be dynamically inserted here -->
+                </select>
+                <div class="note">Please choose a time slot. The session will last for 30 minutes.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email Address</label>
+                <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Book Session</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loadingMessage">
+                <div class="spinner"></div>
+                <p>We're securing your spot with a mentor. Hang tight!...</p>
+            </div>
+        </form>
+    </div>
+
+    <script src="booking script.js"></script> 
+
+</body>
+</html>

@@ -4,6 +4,12 @@ function validateForm() {
     const checkboxErrorMessage = document.getElementById('checkbox-error-message');
     const emailValue = emailInput.value;
 
+    // Get the email value
+    const email = document.getElementById('email').value;
+
+    // Store email in local storage or pass it to the next page via URL
+    localStorage.setItem('userEmail', email);
+
     // Regex to check if email ends with .gov.sg
     const emailPattern = /.*\.gov\.sg$/;
 
@@ -24,7 +30,6 @@ function validateForm() {
     if (!isChecked) {
         checkboxErrorMessage.style.display = 'block'; // Show checkbox error
         return false; // Prevent form submission
-        
     }
 
     // Collect checked interests
@@ -33,12 +38,25 @@ function validateForm() {
         .map(checkbox => checkbox.value)
         .join(',');
 
-    // Redirect to the results page with selected interests as a query parameter
-    window.location.href = `result page.html?interests=${encodeURIComponent(selectedInterests)}`;
-    
+    // Show the loading message and spinner
+    const loadingMessage = document.getElementById('loadingMessage');
+    console.log("Showing loading message...");
+    loadingMessage.style.display = 'block'; // This shows the loading spinner
+
+    // Simulate a 2-second delay before redirecting
+    setTimeout(function() {
+        // Hide the loading spinner before redirecting
+        loadingMessage.style.display = 'none';
+
+        // Redirect to the result page with selected interests as a query parameter
+        window.location.href = `result page.html?interests=${encodeURIComponent(selectedInterests)}&email=${encodeURIComponent(email)}`;
+        }, 2000); // 2-second delay
+
     // Prevent actual form submission
     return false;
 }
+
+
 
 function filterAgencies() {
     const input = document.getElementById('agency-input');
@@ -102,3 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // You can call your function here
    checkAgency();
 });
+
