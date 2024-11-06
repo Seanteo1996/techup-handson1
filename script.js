@@ -30,7 +30,6 @@ if (isMale == true) {
 while (age < 70) {
     console.log("Your age is " + age );
     age = age + 1;
-    sayHello();
 }
 function sayHello() {
     alert("Hello everyone");

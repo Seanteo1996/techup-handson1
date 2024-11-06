@@ -62,7 +62,6 @@ async function fetchExcelData() {
     }
 }
 
-// Create profiles from the fetched data
 function createProfiles(data) {
     allProfiles = []; // Reset all profiles
     const resultsContainer = document.getElementById('resultsContainer');
@@ -70,16 +69,23 @@ function createProfiles(data) {
 
     for (let i = 1; i < data.length; i++) {
         const profileData = data[i];
+
+        // Check if profile data contains valid information before proceeding
+        if (!profileData[0] || !profileData[1] || !profileData[2] || !profileData[3]) {
+            // Skip if essential data like name, title, agencies, or mentoring areas are missing
+            continue;
+        }
+
         const profile = document.createElement('div');
         profile.className = 'profile';
 
         // Set data attributes for filtering
         profile.setAttribute('data-agencies', profileData[2]); // Adjust index as needed
-        profile.setAttribute('data-mentoring-areas', profileData[3]); // Adjust index as needed
+        profile.setAttribute('data-mentoring-areas', profileData[4]); // Adjust index as needed
 
         // Create and set the profile image
         const img = document.createElement('img');
-        img.src = profileData[4] || ''; // Assuming image URL is in index 4
+        img.src = profileData[5] || ''; // Assuming image URL is in index 4
         img.alt = 'Profile Image';
         img.className = 'profile-pic';
         profile.appendChild(img);
@@ -108,7 +114,7 @@ function createProfiles(data) {
         // Create and add mentoring areas
         const mentoringAreas = document.createElement('div');
         mentoringAreas.className = 'mentoring-areas';
-        const areas = profileData[3] ? profileData[3].split(', ') : []; // Assuming mentoring areas are in index 3
+        const areas = profileData[4] ? profileData[4].split(', ') : []; // Assuming mentoring areas are in index 4
         areas.forEach(area => {
             const mentoringBtn = document.createElement('button');
             mentoringBtn.className = 'mentoring-btn';
@@ -127,7 +133,7 @@ function createProfiles(data) {
         // Create a contact button
         const contactBtn = document.createElement('button');
         contactBtn.className = 'contact-btn';
-        contactBtn.textContent = profileData[5] || 'Contact'; // Set button text based on email (index 5)
+        contactBtn.textContent = profileData[6] || 'Contact'; // Set button text based on email (index 5)
         profile.appendChild(contactBtn);
 
         // Append the profile to the allProfiles array
@@ -140,6 +146,7 @@ function createProfiles(data) {
     // Display the first page of profiles
     displayProfiles();
 }
+
 
 // Display profiles for the current page
 function displayProfiles() {
@@ -220,7 +227,6 @@ function setupFilterListeners() {
     });
 }
 
-// Apply filters based on selected criteria
 function applyFilters() {
     const agencyFilters = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
@@ -233,8 +239,8 @@ function applyFilters() {
 
     // Filter profiles based on selected criteria
     allProfiles = originalProfiles.filter(profile => {
-        const profileAgencies = profile.getAttribute('data-agencies').split(', ');
-        const profileAreas = profile.getAttribute('data-mentoring-areas').split(', ');
+        const profileAgencies = profile.getAttribute('data-agencies').split(', ').map(str => str.trim());
+        const profileAreas = profile.getAttribute('data-mentoring-areas').split(', ').map(str => str.trim());
 
         const agencyMatch = selectedAgencies.length === 0 || selectedAgencies.some(agency => profileAgencies.includes(agency));
         const areaMatch = selectedAreas.length === 0 || selectedAreas.some(area => profileAreas.includes(area));
@@ -246,6 +252,7 @@ function applyFilters() {
     currentPage = 1;
     displayProfiles();
 }
+
 
 // Function to reset filters
 function resetFilters() {
