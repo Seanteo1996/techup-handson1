@@ -22,16 +22,59 @@
         <!-- Filter Panel (Initially hidden) -->
         <div id="filterPanel" class="filter-panel">
             <div class="filter-header">
-                <h3>Agencies</h3>
+                <h3>Mentoring Areas</h3>
                 <button id="filterButton" class="filter-button">
                     <img src="../assets/filter icon orange.png" alt="Filter Icon" class="filter-icon" /> <!-- Your uploaded icon -->
                 </button>
             </div>
 
             <div class="filters">
-                <!-- Agencies Section -->
+
+                <!-- Mentoring Areas Section -->
                 <section>
                     <div class="checkbox-group">
+                        <div class="checkbox-row">
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="AI & Machine Learning" onclick="filterProfiles()"> AI & Machine Learning
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Career Development" onclick="filterProfiles()"> Career Development
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Cloud Computing" onclick="filterProfiles()"> Cloud Computing
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Cybersecurity" onclick="filterProfiles()"> Cybersecurity
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Software Engineering" onclick="filterProfiles()"> Software Engineering
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Web Development" onclick="filterProfiles()"> Web Development
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Data Science & Analytics" onclick="filterProfiles()"> Data Science & Analytics
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Mobile App Development" onclick="filterProfiles()"> Mobile App Development
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Leadership and Management" onclick="filterProfiles()"> Leadership and Management
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="Tech Policy Management" onclick="filterProfiles()"> Tech Policy Management
+                            </label>
+                            <label class="checkbox-label mentoring-area-checkbox-label">
+                                <input type="checkbox" value="User Experience (UX) & User Interface (UI)" onclick="filterProfiles()"> User Experience (UX) & User Interface (UI)
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                                <!-- Agencies Section -->
+                <section>
+                    <div class="checkbox-group">
+                        <h3>Agencies/Ministries</h3>
                         <div class="checkbox-row">
                             <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> A*STAR</label>
                             <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="filterProfiles()"> CAAS</label>
@@ -84,47 +127,6 @@
                     </div>
                 </section>
 
-                <!-- Mentoring Areas Section -->
-                <section>
-                    <h3>Mentoring Areas</h3>
-                    <div class="checkbox-group">
-                        <div class="checkbox-row">
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="AI & Machine Learning" onclick="filterProfiles()"> AI & Machine Learning
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Career Development" onclick="filterProfiles()"> Career Development
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Cloud Computing" onclick="filterProfiles()"> Cloud Computing
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Cybersecurity" onclick="filterProfiles()"> Cybersecurity
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Software Engineering" onclick="filterProfiles()"> Software Engineering
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Web Development" onclick="filterProfiles()"> Web Development
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Data Science & Analytics" onclick="filterProfiles()"> Data Science & Analytics
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Mobile App Development" onclick="filterProfiles()"> Mobile App Development
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Leadership and Management" onclick="filterProfiles()"> Leadership and Management
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Tech Policy Management" onclick="filterProfiles()"> Tech Policy Management
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="User Experience (UX) and User Interface (UI)" onclick="filterProfiles()"> User Experience (UX) and User Interface (UI)
-                            </label>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- Buttons for Apply Filters and Clear All -->
                 <div class="filter-actions">
