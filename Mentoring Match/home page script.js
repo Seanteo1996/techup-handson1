@@ -1,19 +1,12 @@
-// JavaScript for carousel functionality (basic horizontal scroll with auto scroll)
+// JavaScript to handle the CTA button click event
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaButton = document.getElementById('cta-button');
 
-document.addEventListener("DOMContentLoaded", function () {
-    const carouselContainer = document.querySelector(".carousel-container");
-    let scrollAmount = 0;
-
-    // Scroll carousel every 3 seconds
-    setInterval(() => {
-        if (scrollAmount >= carouselContainer.scrollWidth - carouselContainer.clientWidth) {
-            scrollAmount = 0;
-        } else {
-            scrollAmount += 200;
-        }
-        carouselContainer.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth"
-        });
-    }, 3000); // Adjust the interval time as needed
+    // Add event listener to the CTA button
+    ctaButton.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the default anchor behavior
+        
+        // Redirect to mentee form page
+        window.location.href = 'mentee form.html'; // Adjust the path if needed
+    });
 });

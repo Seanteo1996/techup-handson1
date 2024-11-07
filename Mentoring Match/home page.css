@@ -1,4 +1,4 @@
-/* General Reset and Styles */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,171 +6,331 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
+    color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-header {
-    background-color: #fff; /* Optional, set a background color */
-    padding: 20px; /* Adjust the padding as necessary */
-}
-
-nav {
-    display: flex;
-    align-items: center; /* Vertically center the content */
-    justify-content: flex-start; /* Align the content to the left */
-}
-
-.logo {
-    display: flex;
-    align-items: center; /* Vertically center the image and text */
-    gap: 15px; /* Space between the image and text */
-}
-
-.logo img {
-    width: 150px; /* Adjust the image size as necessary */
-    height: auto;
-}
-
-
-
-
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-header .logo h1 {
-    font-family: 'Lato', sans-serif; /* Apply the Lato font */
-    font-size: 36px; /* Adjust the size as necessary */
-    font-weight: bold;
-    color: #000000; /* Optional: Adjust text color */
-    font-weight: bold; /* Optional: Make the text bold */
-}
-
-header ul {
-    list-style: none;
-    display: flex;
-}
-
-header ul li {
-    margin-left: 20px;
-}
-
-header ul li a {
-    color: #fff;
-    font-size: 16px;
-}
-
-/* Hero Section Styles */
+/* Hero Section */
 .hero {
-    background-color:#ef5e73;
-    padding: 5rem 2rem;
-    text-align: center;
+    position: relative;
+    background: linear-gradient(135deg, #E81c3A, #ff9f55); /* Red to Soft Orange */
     color: white;
+    text-align: center;
+    padding: 20px 20px; /* Added padding to give it height */
+    overflow: hidden;
+    height:50%;
 }
 
-.hero-text h2 {
-    font-size: 36px;
+.hero .hero-content {
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 0px; /* Adjust this value to move it up */
     margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.hero-text p {
-    font-size: 18px;
-    margin-bottom: 30px;
+.hero p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA Button Styles */
+.cta-container {
+    margin-top: 10px; /* Adds space above the button */
 }
 
 .cta-button {
-    background-color: #4CAF50;
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #3498db; /* Blue color */
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    transition: background-color 0.3s;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center; /* Center text inside button */
 }
 
 .cta-button:hover {
-    background-color: #45a049;
+    background-color: #2980b9; /* Darker blue color on hover */
+    transform: translateY(-5px); /* Slight hover lift effect */
 }
 
-/* About Section Styles */
-.about {
-    background-color: #fff;
-    padding: 3rem 2rem;
+.cta-button:active {
+    transform: translateY(0); /* Remove the lift effect when clicked */
+}
+
+/* SVG Background for Hero Section */
+.hero-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Halve the height from 100px */
+    fill: #ffffff; /* White color for the path */
+}
+
+
+
+body img {
+    width: 150px;
+    height: auto;
+}
+
+/* Featured Mentors Section */
+.featured-mentors {
+    padding-bottom: 20px;
     text-align: center;
 }
 
-.about h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+.featured-mentors h2 {
+    padding-bottom: 30px;
 }
 
-/* Why Is Mentoring Helpful Section */
-.why-helpful {
-    background-color: #f7f7f7;
-    padding: 3rem 2rem;
-    text-align: center;
+/* Featured Mentors Section */
+.mentor-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 20px; /* Space between grid items */
+    justify-items: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+    max-width: 1200px; /* Optional: Set a max width to prevent cards from stretching too wide */
+    margin: 0 auto; /* Center the grid container */
 }
 
-.why-helpful ul {
-    list-style: none;
-    padding: 0;
-}
 
-.why-helpful ul li {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-/* Carousel Styles */
-.carousel {
-    background-color: #fff;
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-.carousel-container {
-    display: flex;
-    overflow-x: scroll;
-    gap: 20px;
-}
-
-.carousel-item {
-    background-color: #f4f7fc;
-    padding: 1rem;
+.mentor-card {
+    background-color: white;
     border-radius: 8px;
-    min-width: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+    height:90%;
+    width: 75%;
 }
 
-.carousel-item img {
-    max-width: 100%;
-    height: 150px;
-    border-radius: 50%;
+.mentor-card:hover {
+    transform: translateY(-10px); /* Hover lift effect */
 }
 
-.carousel-item p {
-    margin-top: 10px;
-    font-size: 14px;
+/* Circle image and same size for all mentor cards */
+/* Mentor Card Image Styling with Bottom-Right Shadow */
+.mentor-card img {
+    width: 120px; /* Fixed size */
+    height: 120px; /* Fixed size */
+    object-fit: cover; /* Crop image to fit */
+    border-radius: 50%; /* Crop image into circle */
+    margin-bottom: 15px; /* Space between image and text */
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow at bottom-right */
 }
 
-/* Footer Styles */
+
+.mentor-card h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+
+.mentor-card h2 {
+    margin-top: 15px;
+    font-size: 1.0rem;
+}
+
+.mentor-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.mentor-card button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mentor-card button:hover {
+    background-color: #2980b9;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transform: translateY(-50%);
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* Footer */
 footer {
     background-color: #333;
-    color: #fff;
-    padding: 2rem 0;
+    color: white;
+    padding: 20px;
     text-align: center;
+    font-size: 0.9rem;
 }
 
-footer p {
-    font-size: 14px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mentor-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-top: -200px; /* Adjust this value to move it up */
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mentor-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Testimonial Section Styles */
+.testimonials {
+    text-align: center;
+    padding: 40px 20px;
+
+    background-color: #f4f4f4;
+}
+
+.testimonials h2{
+    text-align: center;
+    padding-bottom: 30px;
+    background-color: #f4f4f4;
+}
+
+.testimonial-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.testimonial-cards {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    width: calc(33.33% * 12); /* Make the total width of the container 12 cards */
+}
+
+.testimonial-card {
+    width: 33.33%; /* Show 3 testimonials at a time */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 15px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Button styles */
+button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transform: translateY(-50%);
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .testimonial-card {
+        width: 50%;  /* Show 2 testimonials at a time on medium screens */
+    }
+
+    .testimonial-cards {
+        width: calc(50% * 12);  /* Adjust width to fit 12 cards */
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-card {
+        width: 100%;  /* Show 1 testimonial at a time on smaller screens */
+    }
+
+    .testimonial-cards {
+        width: calc(100% * 12);  /* Adjust width to fit 12 cards */
+    }
 }
