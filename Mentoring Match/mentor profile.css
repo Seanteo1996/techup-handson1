@@ -12,14 +12,13 @@ body {
     justify-content: start;
     align-items: start;
     height: 100vh;
-    display:flex;
+    display: flex;
     flex-direction: column;
 }
 
 /* Profile Container */
 #mentor-profile {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -27,7 +26,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;  /* Vertically align items (image and details) */
+    align-items: center; /* Vertically align items (image and details) */
 }
 
 /* Image Section */
@@ -78,28 +77,15 @@ h3 {
     padding-left: 20px;
 }
 
-/* Past Agencies List */
-#mentor-past-agencies {
-    list-style-type: none;
-    padding-left: 20px;
-}
-
-#mentor-past-agencies li {
-    font-size: 1rem;
-    color: #555;
-}
-
 /* Additional Details Container */
 #additional-details {
-    margin-top: 30px;
     width: 100%;
-}
-
-#additional-details h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;  /* Align items at the top */
+    gap: 10px;
+    margin-top: 20px;
 }
 
 /* Styling for Individual Nested Sections within Additional Details */
@@ -107,11 +93,16 @@ h3 {
 #mentor-mentoring-areas {
     padding: 15px;
     margin-top: 20px;
-    background-color: #f9f9f9;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    width: 48%; /* Ensure both sections take up equal space */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add space between header and buttons */
 }
 
+/* Common Header Styling for Both Sections */
 #mentor-past-agencies h3,
 #mentor-mentoring-areas h3 {
     font-size: 1.2rem;
@@ -119,8 +110,9 @@ h3 {
     color: #333;
 }
 
-/* Styling for Mentoring Area Buttons or List Items */
-#mentor-mentoring-area-list button {
+/* Common Button Styles for Both Mentoring Areas and Past Agencies */
+#mentor-mentoring-area-list button,
+#mentor-past-agencies button {
     background-color: #007bff;
     color: white;
     padding: 8px 15px;
@@ -130,20 +122,53 @@ h3 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    text-align: center;
+    width: auto;
 }
 
-#mentor-mentoring-area-list button:hover {
+/* Hover and Focus Styles for Buttons */
+#mentor-mentoring-area-list button:hover,
+#mentor-past-agencies-list button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-#mentor-mentoring-area-list button:focus {
+#mentor-mentoring-area-list button:focus,
+#mentor-past-agencies button:focus {
     outline: none;
 }
 
-/* Responsive for Small Screens */
+/* Flexbox Layout for Past Agencies and Mentoring Areas List */
+#mentor-mentoring-area-list,
+#mentor-past-agencies-list {
+    list-style-type: none;
+    padding-left: 20px;
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    flex-wrap: wrap;  /* Allow buttons to wrap to the next line if necessary */
+    gap: 10px;  /* Space between buttons */
+}
+
+/* Responsive Layout for Smaller Screens */
 @media (max-width: 768px) {
-    #mentor-past-agencies {
+    /* Stack the Past Agencies and Mentoring Areas on smaller screens */
+    #mentor-past-agencies,
+    #mentor-mentoring-areas {
+        width: 100%;
+    }
+    
+    /* Adjust button size for mobile screens */
+    #mentor-mentoring-area button,
+    #mentor-past-agencies button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Adjust button layout for smaller screens */
+    #mentor-mentoring-area-list,
+    #mentor-past-agencies-list {
         justify-content: center;
     }
 }

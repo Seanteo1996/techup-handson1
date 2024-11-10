@@ -34,11 +34,11 @@ function displayMentorProfile(profileData) {
     // Get the elements where data will be inserted
     const name = document.getElementById('mentor-name');
     const title = document.getElementById('mentor-title');
-    const agencies = document.getElementById('mentor-agencies');
+    const agencies = document.getElementById('mentor-agency');
     const email = document.getElementById('mentor-email');
-    const pastAgenciesList = document.getElementById('mentor-past-agencies');
+    const pastAgenciesList = document.getElementById('mentor-past-agencies-list');
+    const mentoringAreasList = document.getElementById('mentor-mentoring-area-list');
     const image = document.getElementById('mentor-image');
-
 
     // Set mentor details
     name.textContent = profileData[0];  // Mentor Name
@@ -50,7 +50,7 @@ function displayMentorProfile(profileData) {
 
     // Populate Past Agencies as buttons with hover effect
     pastAgenciesList.innerHTML = ''; // Clear past agencies list before adding new ones
-    const pastAgencies = profileData[3] ? profileData[3].split(',') : [];  // Assuming past agencies are in column 7
+    const pastAgencies = profileData[3] ? profileData[3].split(',') : [];  // Assuming past agencies are in column 4 (index 3)
 
     pastAgencies.forEach(agency => {
         const agencyButton = document.createElement('button');
@@ -64,6 +64,24 @@ function displayMentorProfile(profileData) {
 
         // Append the button to the list
         pastAgenciesList.appendChild(agencyButton);
+    });
+
+    // Populate Mentoring Areas as buttons
+    mentoringAreasList.innerHTML = '';  // Clear mentoring areas list before adding new ones
+    const mentoringAreas = profileData[4] ? profileData[4].split(',') : [];  // Assuming mentoring areas are in column 5 (index 4)
+
+    mentoringAreas.forEach(area => {
+        const mentoringButton = document.createElement('button');
+        mentoringButton.className = 'mentoring-area-btn';  // You can style this class
+        mentoringButton.textContent = area.trim();  // Mentoring area name
+        
+        // Optionally, add an event listener for click or hover actions
+        mentoringButton.addEventListener('click', () => {
+            console.log(`Mentoring Area clicked: ${area}`);
+        });
+
+        // Append the button to the list
+        mentoringAreasList.appendChild(mentoringButton);
     });
 }
 
