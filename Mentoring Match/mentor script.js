@@ -134,13 +134,13 @@ function createProfiles(data) {
         profileInfo.appendChild(mentoringAreas);
         profile.appendChild(profileInfo);
 
-        // Create "Book a Mentor Chat" button
-        const contactBtn = document.createElement('button');
-        contactBtn.className = 'contact-btn';
-        contactBtn.textContent = 'Book a Mentor Chat'; // Fixed text for button
+        // Create "View Full Profile" button
+        const profileBtn = document.createElement('button');
+        profileBtn.className = 'profile-btn';
+        profileBtn.textContent = 'See Full Profile'; // Fixed text for button
 
         // Add event listener for the "Book a Mentor Chat" button
-        contactBtn.addEventListener('click', () => {
+        profileBtn.addEventListener('click', () => {
             const mentorName = profileData[0];  // Name
             const mentorTitle = profileData[1];  // Title
             const mentorAgencies = profileData[2];  // Agencies
@@ -163,11 +163,11 @@ function createProfiles(data) {
             }).toString();
 
             // Redirect to the booking page
-            window.location.href = `booking.html?${queryString}`;
+            window.location.href = `mentor profile.html?${queryString}`;
         });
 
         // Append the contact button
-        profile.appendChild(contactBtn);
+        profile.appendChild(profileBtn);
 
         // Append profile to the list of all profiles
         allProfiles.push(profile);

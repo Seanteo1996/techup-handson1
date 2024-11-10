@@ -185,7 +185,7 @@ header {
     font-weight: 600; 
 }
 
-.contact-btn {
+.profile-btn {
     padding: 6px 12px; 
     border-radius: 8px; 
     background-color: #1E88E5; 
@@ -197,7 +197,7 @@ header {
     padding:7px;
 }
 
-.contact-btn:hover {
+.profile-btn:hover {
     background-color: #1565C0; 
     transform: translateY(-2px); 
 }
