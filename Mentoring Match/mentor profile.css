@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     color: #333;
     justify-content: start;
     align-items: start;
@@ -67,14 +67,13 @@ body {
 
 #mentor-agencies, #mentor-email {
     font-size: 1rem;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 }
 
 h3 {
     margin-top: 20px;
-    font-size: 1.3rem;
+    font-size: 12;
     color: #333;
-    padding-left: 20px;
 }
 
 /* Additional Details Container */
@@ -89,35 +88,54 @@ h3 {
 }
 
 /* Styling for Individual Nested Sections within Additional Details */
-#mentor-past-agencies,
 #mentor-mentoring-areas {
-    padding: 15px;
-    margin-top: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    width: 48%; /* Ensure both sections take up equal space */
+    width: 75%; /* Ensure both sections take up equal space */
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Add space between header and buttons */
 }
+
+#mentor-past-agencies{
+    background-color: white;
+    border-radius: 8px;
+    width: 25%; /* Ensure both sections take up equal space */
+    display: flex;
+    flex-direction: column;
+
+}
+
 
 /* Common Header Styling for Both Sections */
 #mentor-past-agencies h3,
 #mentor-mentoring-areas h3 {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
+    margin-top:10px;
     margin-bottom: 10px;
     color: #333;
 }
 
 /* Common Button Styles for Both Mentoring Areas and Past Agencies */
-#mentor-mentoring-area-list button,
+#mentor-mentoring-area-list button {
+    background-color: #4aa3f7;
+    color: rgb(255, 253, 253);
+    padding: 8px 15px;
+    margin: 5px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+}
 #mentor-past-agencies button {
-    background-color: #007bff;
+    background-color: #cb4d4d;
     color: white;
     padding: 8px 15px;
     margin: 5px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -143,7 +161,6 @@ h3 {
 #mentor-mentoring-area-list,
 #mentor-past-agencies-list {
     list-style-type: none;
-    padding-left: 20px;
     font-size: 1rem;
     color: #555;
     display: flex;
@@ -171,4 +188,73 @@ h3 {
     #mentor-past-agencies-list {
         justify-content: center;
     }
+}
+
+/* About Mentor Section */
+#about-mentor-details {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+#about-mentor-details h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+#about-mentor-details h3 {
+    font-size: 1.4rem;
+    color: #007bff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Biography Section */
+#mentor-bio p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Areas of Expertise */
+#mentor-expertise ul {
+    list-style-type: none;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+#mentor-expertise ul li {
+    margin-bottom: 8px;
+}
+
+/* Additional Details */
+#mentor-additional-details ul {
+    list-style-type: none;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+#mentor-additional-details ul li {
+    margin-bottom: 8px;
+}
+
+/* Add a separator between sections */
+#about-mentor-details div {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+}
+
+#about-mentor-details div:last-child {
+    border-bottom: none;
 }

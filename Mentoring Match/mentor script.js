@@ -4,6 +4,9 @@ let originalProfiles = []; // Store the original profiles for resetting filters
 let currentPage = 1; // Track the current page
 const profilesPerPage = 6; // Number of profiles per page
 
+// Global variable to store selected years of experience filters
+let selectedExperienceRanges = [];
+
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -115,6 +118,12 @@ function createProfiles(data) {
         agencies.textContent = `${profileData[2] || 'N/A'}`;
         profileInfo.appendChild(agencies);        
 
+        // Years of Experience
+        const experience = document.createElement('div');
+        experience.className = 'experience';
+        experience.innerHTML = `<strong>Years of Experience:</strong> ${profileData[7] || 'N/A'}`; // Added strong for bolding the label
+        profileInfo.appendChild(experience);
+
         // Mentoring Areas
         const mentoringAreas = document.createElement('div');
         mentoringAreas.className = 'mentoring-areas';
@@ -139,7 +148,7 @@ function createProfiles(data) {
         profileBtn.className = 'profile-btn';
         profileBtn.textContent = 'See Full Profile'; // Fixed text for button
 
-        // Add event listener for the "Book a Mentor Chat" button
+        
         profileBtn.addEventListener('click', () => {
             const mentorName = profileData[0];  // Name
             const mentorTitle = profileData[1];  // Title
@@ -239,10 +248,38 @@ function updatePaginationControls() {
     }
 }
 
+// Function to check if the profile's years of experience matches the selected range
+function checkExperience(profileExperience) {
+    console.log('Profile Experience:', profileExperience);
+    // Check if profileExperience is a valid string and contains the expected structure
+    if (typeof profileExperience !== 'string' || !profileExperience.includes('Years of Experience:')) {
+        console.log('Invalid profile experience format:', profileExperience);
+        return false; // Invalid experience format
+    }
+
+    // Extract the number after "Years of Experience:"
+    const profileYearsString = profileExperience.split(':')[1]?.trim(); // Split by colon and trim any spaces
+    const profileYears = parseInt(profileYearsString, 10);
+    console.log('Parsed Profile Years:', profileYears);
+
+    // If no years are specified (e.g., 'N/A' or empty), return false
+    if (isNaN(profileYears)) {
+        return false;
+    }
+
+    // Check if the profile's years of experience match the selected ranges
+    return selectedExperienceRanges.some(range => {
+        const [start, end] = range.split(' - ').map(Number);
+        return profileYears >= start && profileYears <= end;
+    });
+}
+
+
 // Setup listeners for filter inputs
 function setupFilterListeners() {
     const agencyFilters = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
+    const experienceFilters = document.querySelectorAll('.checkbox-column input[type="checkbox"]'); // New Experience Filters
 
     agencyFilters.forEach(input => {
         input.addEventListener('change', () => {
@@ -257,32 +294,52 @@ function setupFilterListeners() {
             applyFilters();
         });
     });
+
+    experienceFilters.forEach(input => {
+        input.addEventListener('change', () => {
+            selectedExperienceRanges = Array.from(experienceFilters)
+                .filter(i => i.checked)
+                .map(i => i.value);
+            console.log('Selected Experience Ranges:', selectedExperienceRanges);
+            applyFilters();
+        });
+    });
 }
 
-// Apply filters based on selected criteria
 function applyFilters() {
     const agencyFilters = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
+    const experienceFilters = document.querySelectorAll('.checkbox-column input[type="checkbox"]'); // New Experience Filters
 
+    // Get selected agencies and areas
     const selectedAgencies = Array.from(agencyFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
     const selectedAreas = Array.from(areaFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
 
+    // Update selected experience ranges
+    selectedExperienceRanges = Array.from(experienceFilters)
+        .filter(input => input.checked)
+        .map(input => input.value);
+
     console.log('Selected Areas:', selectedAreas);
+    console.log('Selected Experience Ranges:', selectedExperienceRanges); // Ensure ranges are logged
 
     // Filter profiles based on selected criteria
     allProfiles = originalProfiles.filter(profile => {
         const profileAgencies = profile.getAttribute('data-agencies').split(', ').map(str => str.trim());
         const profileAreas = profile.getAttribute('data-mentoring-areas').split(', ').map(str => str.trim());
+        const profileExperience = profile.querySelector('.experience').textContent || '';
 
         const agencyMatch = selectedAgencies.length === 0 || selectedAgencies.some(agency => profileAgencies.includes(agency));
         const areaMatch = selectedAreas.length === 0 || selectedAreas.some(area => profileAreas.includes(area));
+        const experienceMatch = selectedExperienceRanges.length === 0 || checkExperience(profileExperience); // Add experience check
 
-        return agencyMatch && areaMatch;
+        return agencyMatch && areaMatch && experienceMatch;
     });
 
     currentPage = 1; // Reset to first page
     displayProfiles();
 }
+
 
 // Function to reset filters
 function resetFilters() {

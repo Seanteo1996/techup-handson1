@@ -46,7 +46,7 @@ header {
 .filters {
     padding: 10px;
     border-right: 1px solid #ccc;
-    width: 115%; /* Set initial width */
+    width: 130%; /* Set initial width */
     height: 100%; /* Full height */
     overflow-y: auto; 
     background: rgba(255, 255, 255, 0.9); /* Same translucent background as results container */
@@ -62,7 +62,7 @@ header {
     display: flex;
     justify-content: space-between; /* Distribute space between the elements */
     align-items: center; /* Vertically center the items */
-    width: 115%; /* Ensure the header takes full width */
+    width: 130%; /* Ensure the header takes full width */
     padding: 10px;
     margin: 0px;
     background: rgba(255, 255, 255, 0.9); /* Same translucent background as results container */
@@ -172,7 +172,7 @@ header {
 }
 
 .title {
-    font-size: 1.3em; 
+    font-size: 1.2em; 
     color: #555555; 
     margin: 2px 0;
     font-weight: 500; 
@@ -217,7 +217,8 @@ header {
 
 .agency-checkbox-label {
     width: calc(33.33% - 20px); 
-    padding: 5px; 
+    padding: 5px;
+    padding-right:0px; 
     margin: 0 5px; 
 }
 
@@ -384,4 +385,45 @@ h3 {
     margin: 0px; 
     color: #333; 
     padding-top: 3px;
+}
+
+.experience {
+    font-size: 1rem;
+    color: #555; /* Slightly muted color for text */
+    margin: 8px; /* Add some spacing between previous section */
+    font-weight: normal;
+    display: flex;
+    align-items: center; /* Aligns the label and the value horizontally */
+    justify-content: center; /* Centers the text horizontally */
+    gap: 5px; /* Adds a small gap between the label and the value */
+}
+
+
+.experience strong {
+    font-weight: bold; /* Makes the label bold */
+    color: #333; /* Darker color for the label to make it stand out */
+}
+
+/* General Styles */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px; /* Space between columns */
+    margin-bottom:5px;
+}
+
+.checkbox-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Create two columns */
+.checkbox-column {
+    padding-right: 5px; /* Add space between columns */
+}
+
+
+.checkbox-label input {
+    margin-right: 0px;
 }
