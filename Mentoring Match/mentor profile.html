@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentor Profile</title>
+    <link rel="icon" href="../assets/snlogo-removebg-preview.png" type="image/x-icon"> <!-- Link to favicon -->
     <link rel="stylesheet" href="mentor profile.css">
     <!-- Add XLSX library from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
 </head>
+
+
 <body>
+    <header>
+        <div class="header-content">
+            <img src="../assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
+            <h1>NextTech Leaders Mentoring Programme</h1>
+        </div>    
+    </header>  
+    
     <div id="mentor-profile">
         <div id="mentor-container">
             <!-- Image on the left -->
@@ -22,6 +32,7 @@
                 <h2 id="mentor-name"></h2>
                 <p id="mentor-title"></p>
                 <p id="mentor-agencies"></p>
+                <p id="mentor-experience"></p>
                 <p id="mentor-email"></p>
                 <div id="additional-details">
                     <!-- Past Agencies -->
@@ -47,10 +58,12 @@
         <h2>About the Mentor</h2>
         <div id="mentor-bio">
             <h3>Biography</h3>
-            <p>
-            <!-- Mentor's biography text will be inserted here -->
-            </p>
+            <p id="mentor-about"></p>
+        </div>
     </div>
+
+    <div id="book-chat-container">
+        <button id="book-chat-btn">Book a Mentor Chat</button>
     </div>
 
     <script src="mentor profile script.js"></script>

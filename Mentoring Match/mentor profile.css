@@ -6,19 +6,20 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
     justify-content: start;
-    align-items: start;
+    align-items: center;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 /* Profile Container */
 #mentor-profile {
-    width: 100%;
+    width: 50%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -50,6 +51,10 @@ body {
 /* Mentor Details */
 #mentor-details {
     flex-grow: 1; /* Take up the remaining space */
+}
+
+#mentor-details p{
+    margin-bottom: 10px;  /* Adjust the value to control spacing between paragraphs */
 }
 
 #mentor-name {
@@ -192,7 +197,7 @@ h3 {
 
 /* About Mentor Section */
 #about-mentor-details {
-    width: 100%;
+    width: 50%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -216,11 +221,17 @@ h3 {
 }
 
 /* Biography Section */
+#mentor-bio  {
+    margin-bottom: 0px;
+}
+
+
+/* Biography Section */
 #mentor-bio p {
     font-size: 1.1rem;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-bottom: 0px;
 }
 
 /* Areas of Expertise */
@@ -257,4 +268,67 @@ h3 {
 
 #about-mentor-details div:last-child {
     border-bottom: none;
+}
+
+/* Style the container to center the button */
+#book-chat-container {
+    display: flex;
+    justify-content: center;  /* Horizontally center the button */
+    align-items: center;      /* Vertically center the button */
+    height: 100px;            /* Adjust based on your layout */
+    margin: 20px;         /* Optional margin for spacing above */
+    padding:0;
+}
+
+/* Style the button */
+#book-chat-btn {
+    background-color: #4CAF50;  /* Green background */
+    color: white;               /* White text color */
+    font-size: 20px;            /* Text size */
+    padding: 15px 30px;         /* Padding to make the button larger */
+    border: none;               /* Remove default border */
+    border-radius: 25px;        /* Rounded corners */
+    cursor: pointer;           /* Cursor changes to a pointer on hover */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+    text-align: center;         /* Center the text */
+}
+
+/* Button hover effect */
+#book-chat-btn:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    transform: scale(1.05);      /* Slightly grow the button */
+}
+
+/* Optionally, add a box shadow for a more modern look */
+#book-chat-btn:focus {
+    outline: none;              /* Remove the default outline */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on focus */
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+}
+
+header {
+    width: 100%;
+    padding: 10px; /* Optional: adjust padding around the header */
+}
+
+.header-content {
+    display: flex;
+    justify-content: center; /* Distributes space between elements */
+    align-items: center; /* Vertically centers the items */
+    gap:20px;
+    padding-bottom:20px;
+}
+
+header img {
+    max-width: 150px; /* You can adjust this to your desired image width */
+    height: auto;
+}
+
+header h1 {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin: 0; /* Remove default margin from h1 */
 }

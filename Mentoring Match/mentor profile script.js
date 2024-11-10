@@ -39,6 +39,8 @@ function displayMentorProfile(profileData) {
     const pastAgenciesList = document.getElementById('mentor-past-agencies-list');
     const mentoringAreasList = document.getElementById('mentor-mentoring-area-list');
     const image = document.getElementById('mentor-image');
+    const yearsOfExperience = document.getElementById('mentor-experience');
+    const aboutMentor = document.getElementById('mentor-about');
 
     // Set mentor details
     name.textContent = profileData[0];  // Mentor Name
@@ -82,6 +84,28 @@ function displayMentorProfile(profileData) {
 
         // Append the button to the list
         mentoringAreasList.appendChild(mentoringButton);
+    });
+
+    // Display Years of Experience (index 7)
+    yearsOfExperience.textContent = `Years of Experience: ${profileData[7] || 'N/A'}`;
+
+    // Display About Mentor (index 8)
+    aboutMentor.textContent = `${profileData[8] || 'No information available.'}`;
+
+    const bookChatButton = document.getElementById('book-chat-btn');
+    bookChatButton.addEventListener('click', () => {
+        // Retrieve the user's email from localStorage
+        const userEmail = localStorage.getItem('userEmail');
+        
+        // Construct the query string to pass data to booking.html
+        const queryString = new URLSearchParams({
+            name: profileData[0],  // Mentor Name
+            image: profileData[5] || '',  // Mentor Image
+            userEmail: userEmail || '',  // User's email (from localStorage)
+        }).toString();
+        
+        // Redirect to booking.html with the mentor's data and user email in the query string
+        window.location.href = `booking.html?${queryString}`;
     });
 }
 

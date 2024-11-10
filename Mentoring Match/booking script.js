@@ -70,7 +70,7 @@
         // On page load, autopopulate the mentor info and email field if the query parameters are available in the URL
         document.addEventListener('DOMContentLoaded', function() {
             const mentorName = getQueryParam('name');
-            const mentorImage = getQueryParam('profileImage');
+            const mentorImage = getQueryParam('image');
             const userEmail = getQueryParam('userEmail');
 
             if (mentorName) {
