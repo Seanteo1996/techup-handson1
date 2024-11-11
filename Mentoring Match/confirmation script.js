@@ -10,10 +10,7 @@ function getQueryParam(param) {
 document.addEventListener('DOMContentLoaded', function() {
     const mentorName = getQueryParam('mentorName');
     const timeSlot = getQueryParam('timeSlot');
-    const mentorImage = getQueryParam('profileImage'); // Get profile image URL
-
-    // Check if the profile image is captured
-    console.log("Profile Image on Confirmation Page:", mentorImage);
+    const mentorImage = getQueryParam('image'); // Get profile image URL
 
     if (mentorName) {
         document.getElementById('mentorName').textContent = mentorName;

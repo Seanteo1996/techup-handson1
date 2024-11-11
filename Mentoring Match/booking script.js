@@ -73,13 +73,15 @@
             const mentorImage = getQueryParam('image');
             const userEmail = getQueryParam('userEmail');
 
+            console.log("Image:", mentorImage); // Check the value of profileImage
+
             if (mentorName) {
                 const mentorNameElement = document.getElementById('mentorName');
                 mentorNameElement.textContent = mentorName;
             }
 
             if (mentorImage) {
-                const mentorImageElement = document.getElementById('mentorImage');
+                const mentorImageElement = document.getElementById('mentor-image');
                 mentorImageElement.src = mentorImage;
             }
 
@@ -99,10 +101,12 @@
             const timeSlot = document.getElementById('timeSlot').value;
             const email = document.getElementById('email').value;
             const mentorName = getQueryParam('name'); 
-            const mentorImage = getQueryParam('profileImage');  // Capture the profile image URL
+            const mentorPic = getQueryParam('image');  // Capture the profile image URL
 
             // Log the captured profile image to the console
-            console.log("Captured Profile Image URL:", mentorImage); // Check the value of profileImage
+            console.log("Email:", email); // Check the value of profileImage
+            console.log("Captured Mentor Name:", mentorName); // Check the value of profileImage
+            console.log("Captured Profile Image URL:", mentorPic); // Check the value of profileImage
 
             // Check if required fields are filled
             if (!timeSlot || !email) {
@@ -112,9 +116,11 @@
 
             // Show the loading message and spinner
             document.getElementById('loadingMessage').style.display = 'block';
-
+            
             setTimeout(function() {
-                const confirmationUrl = `confirmation.html?mentorName=${encodeURIComponent(mentorName)}&timeSlot=${encodeURIComponent(timeSlot)}&email=${encodeURIComponent(email)}&profileImage=${encodeURIComponent(mentorImage)}`;
+                const confirmationUrl = `confirmation.html?mentorName=${encodeURIComponent(mentorName)}&timeSlot=${encodeURIComponent(timeSlot)}&email=${encodeURIComponent(email)}&image=${encodeURIComponent(mentorPic)}`;
                 window.location.href = confirmationUrl;
             }, 4000); // Delay of 4 seconds
+
+
         });
