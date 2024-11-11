@@ -136,7 +136,7 @@ h3 {
     width: auto;
 }
 #mentor-past-agencies button {
-    background-color: #cb4d4d;
+    background-color: #e24e4e;
     color: white;
     padding: 8px 15px;
     margin: 5px;
@@ -151,9 +151,13 @@ h3 {
 }
 
 /* Hover and Focus Styles for Buttons */
-#mentor-mentoring-area-list button:hover,
-#mentor-past-agencies-list button:hover {
+#mentor-mentoring-area-list button:hover{
     background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#mentor-past-agencies-list button:hover{
+    background-color: #a14040;
     transform: scale(1.05);
 }
 
@@ -278,12 +282,27 @@ h3 {
     height: 100px;            /* Adjust based on your layout */
     margin: 20px;         /* Optional margin for spacing above */
     padding:0;
+    gap:20px;
 }
 
 /* Style the button */
 #book-chat-btn {
     background-color: #4CAF50;  /* Green background */
+    border: 1px solid #ccc;
     color: white;               /* White text color */
+    font-size: 20px;            /* Text size */
+    padding: 15px 30px;         /* Padding to make the button larger */
+    border: none;               /* Remove default border */
+    border-radius: 25px;        /* Rounded corners */
+    cursor: pointer;           /* Cursor changes to a pointer on hover */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+    text-align: center;         /* Center the text */
+}
+
+#back-to-results-btn {
+    background-color: #d34b4b; /* Customize as needed */
+    border: 1px solid #ccc;
+    color: white;
     font-size: 20px;            /* Text size */
     padding: 15px 30px;         /* Padding to make the button larger */
     border: none;               /* Remove default border */
@@ -299,8 +318,14 @@ h3 {
     transform: scale(1.05);      /* Slightly grow the button */
 }
 
+/* Button hover effect */
+#back-to-results-btn:hover {
+    background-color: #823737;  /* Darker green on hover */
+    transform: scale(1.05);      /* Slightly grow the button */
+}
+
 /* Optionally, add a box shadow for a more modern look */
-#book-chat-btn:focus {
+#back-to-results-btn:focus, #book-chat-btn:focus {
     outline: none;              /* Remove the default outline */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on focus */
 }

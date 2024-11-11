@@ -88,3 +88,40 @@ h1 {
     margin-top: 30px;
     font-style: italic;
 }
+
+/* Style the container to center the button */
+#back-to-mentor-results-container{
+    display: flex;
+    justify-content: center;  /* Horizontally center the button */
+    align-items: center;      /* Vertically center the button */
+    height: 100px;            /* Adjust based on your layout */
+    margin: 20px;         /* Optional margin for spacing above */
+    padding:0;
+    gap:20px;
+}
+
+/* Style the button */
+#back-to-mentor-results-btn {
+    background-color: #4CAF50;  /* Green background */
+    border: 1px solid #ccc;
+    color: white;               /* White text color */
+    font-size: 20px;            /* Text size */
+    padding: 15px 30px;         /* Padding to make the button larger */
+    border: none;               /* Remove default border */
+    border-radius: 25px;        /* Rounded corners */
+    cursor: pointer;           /* Cursor changes to a pointer on hover */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+    text-align: center;         /* Center the text */
+}
+
+/* Button hover effect */
+#back-to-mentor-results-btn:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    transform: scale(1.05);      /* Slightly grow the button */
+}
+
+/* Optionally, add a box shadow for a more modern look */
+#back-to-mentor-results-btn:focus {
+    outline: none;              /* Remove the default outline */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on focus */
+}
