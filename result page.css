@@ -145,7 +145,7 @@ header {
     transition: box-shadow 0.3s; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
     height: 100%;
-    width: 65%;
+    width: 75%;
     position: relative; 
 }
 
