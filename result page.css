@@ -46,7 +46,7 @@ header {
 .filters {
     padding: 10px;
     border-right: 1px solid #ccc;
-    width: 130%; /* Set initial width */
+    width: 150%; /* Set initial width */
     height: 100%; /* Full height */
     overflow-y: auto; 
     background: rgba(255, 255, 255, 0.9); /* Same translucent background as results container */
@@ -62,7 +62,7 @@ header {
     display: flex;
     justify-content: space-between; /* Distribute space between the elements */
     align-items: center; /* Vertically center the items */
-    width: 130%; /* Ensure the header takes full width */
+    width: 150%; /* Ensure the header takes full width */
     padding: 10px;
     margin: 0px;
     background: rgba(255, 255, 255, 0.9); /* Same translucent background as results container */
@@ -105,7 +105,7 @@ header {
     justify-content: space-between;
     width: 80%; /* Make the results container take full width */
     height: 100%;
-    margin-left: 70px;
+    margin-left: 180px;
     transition: width 0.3s ease;
 }
 

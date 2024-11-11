@@ -96,7 +96,7 @@ h3 {
 #mentor-mentoring-areas {
     background-color: white;
     border-radius: 8px;
-    width: 75%; /* Ensure both sections take up equal space */
+    width: 65%; /* Ensure both sections take up equal space */
     display: flex;
     flex-direction: column;
 }
@@ -104,7 +104,7 @@ h3 {
 #mentor-past-agencies{
     background-color: white;
     border-radius: 8px;
-    width: 25%; /* Ensure both sections take up equal space */
+    width: 35%; /* Ensure both sections take up equal space */
     display: flex;
     flex-direction: column;
 
