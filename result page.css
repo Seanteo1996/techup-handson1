@@ -216,7 +216,7 @@ header {
 }
 
 .agency-checkbox-label {
-    width: calc(33.33% - 20px); 
+    width: calc(50% - 20px); 
     padding: 5px;
     padding-right:0px; 
     margin: 0 5px; 
@@ -225,6 +225,12 @@ header {
 .mentoring-area-checkbox-label {
     width: calc(50% - 20px); 
     padding: 5px; 
+    margin: 0 5px; 
+}
+
+.exp-checkbox-label {
+    width: calc(50% - 20px); 
+    padding: 5px;
     margin: 0 5px; 
 }
 
@@ -421,6 +427,7 @@ h3 {
 /* Create two columns */
 .checkbox-column {
     padding-right: 5px; /* Add space between columns */
+    align-items: start;
 }
 
 
@@ -428,3 +435,9 @@ h3 {
     margin-right: 0px;
 }
 
+.agency-checkbox-label {
+    width: calc(50% - 20px); 
+    padding: 5px;
+    padding-right:0px; 
+    margin: 0 5px; 
+}
