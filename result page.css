@@ -462,3 +462,9 @@ h3 {
     cursor: not-allowed;
     box-shadow: none;
 }
+
+.exp-section,
+.agency-ministry-section,
+.area-section {
+    padding: 0 5px;
+}
