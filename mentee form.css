@@ -1,41 +1,48 @@
 /* Global Styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-image: url('../assets/mentoring bg.png'); /* Change to your image path */
-    background-size: cover; /* This will cover the entire area */
-    background-position: left top; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-image: url('../assets/mentoring bg.png');
+    background-size: 100%;
+    background-position: left top;
+    background-repeat: no-repeat;
     background-color: #f0f4f8;
     margin: 0;
     padding: 0;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    overflow: hidden;
 }
 
+/* Header Styles */
 header {
     text-align: center;
     background-color: white;
     color: black;
-    padding: 20px;
-    margin-bottom: 30px;
+    height: 8%; /* Reduced height */
 }
 
 .header-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between the image and text */
-    flex-wrap: wrap; /* Ensure it wraps on small screens */
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 header img {
     width: 150px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduced margin */
 }
 
 h1 {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 36px;
+    font-size: 30px;
     color: #000000;
+    margin: 5px 0; /* Reduced margin */
 }
 
 /* Sub-headings */
@@ -43,66 +50,71 @@ h2 {
     text-align: center;
     color: #333;
     font-size: 36px;
-    margin: 10px;
+    margin: 5px 0; /* Reduced margin */
 }
 
 /* Contact Form */
 .contact-form {
     max-width: 600px;
-    width: 100%; /* Makes the form responsive */
+    width: 100%;
     background-color: rgba(240, 244, 248, 0.9);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transform: scale(0.8); /* Zoom out to 80% */
+    padding: 20px;
+    padding-top: 20px;
+    margin: 10px auto; /* Reduced top margin */
+    transform: scale(0.65);
+    transform-origin: top center; /* Scale from top */
+    margin-bottom: 30px; /* Added bottom margin to push form down */
 }
 
-/* Input fields */
+/* Question spacing */
 .question {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced margin */
 }
 
 .question h3 {
-    margin-bottom: 10px;
+    margin: 5px 8px 15px; /* Reduced margins */
     color: #555;
 }
 
+/* Rest of the CSS remains the same */
 input[type="text"],
 input[type="email"],
 select,
 #agency { 
-    width: 100%; /* Ensures all input fields, including Agency, take full width */
+    width: 100%;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding and border are included in the width */
+    box-sizing: border-box;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 select:focus {
-    border-color: #0056a0; /* Matching the header color */
+    border-color: #0056a0;
     outline: none;
 }
 
-/* Checkbox group */
 .checkbox-group {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Makes checkboxes adjust based on available space */
-    gap: 15px; /* Adjust the spacing between checkboxes */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
     font-size: 16px;
+    gap: 5px;
 }
 
-/* Spinner Overlay */
 .loading {
-    display: none; /* Initially hidden */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -119,8 +131,8 @@ select:focus {
 }
 
 .spinner {
-    border: 4px solid #f3f3f3; /* Light gray */
-    border-top: 4px solid #4CAF50; /* Green */
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4CAF50;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -133,9 +145,8 @@ select:focus {
     100% { transform: rotate(360deg); }
 }
 
-/* Button Styles */
 button {
-    background-color: #4CAF50; /* Smart Nation red */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -143,7 +154,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     width: 100%;
-    transition: color 0s; /* Smooth transition for color change */
+    transition: color 0s;
 }
 
 button:hover {
@@ -151,23 +162,20 @@ button:hover {
     color: white;
 }
 
-/* Hide 'Other Agency' field */
 #other-agency {
-    display: none; /* Initially hidden */
+    display: none;
 }
 
-/* Icon Size */
 .icon {
     width: 48px;
     height: 48px;
 }
 
-/* Name Container */
 .name-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduced margin */
 }
 
 .name-container .question {
@@ -180,14 +188,13 @@ button:hover {
 }
 
 .name-container .question input {
-    width: 100%; /* Ensure the inputs inside name-container fill the container */
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-/* Dropdown Styles */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -226,56 +233,48 @@ button:hover {
     display: block;
 }
 
-/* Responsive layout for smaller screens */
 @media (max-width: 768px) {
-    /* Contact Form */
     .contact-form {
-        padding: 15px; /* Reduce padding on smaller screens */
+        padding: 15px;
     }
 
-    /* Name Container */
     .name-container {
-        flex-direction: column; /* Stack name fields vertically */
+        flex-direction: column;
     }
 
-    /* Checkbox group */
     .checkbox-group {
-        grid-template-columns: 1fr; /* Stack checkboxes vertically */
+        grid-template-columns: 1fr;
     }
 
-    /* Form elements */
     input[type="text"],
     input[type="email"],
     select {
-        width: 100%; /* Ensure form elements fill the container on mobile */
+        width: 100%;
     }
 
-    /* Header adjustments */
     .header-content {
         flex-direction: column;
         align-items: center;
     }
 
     header img {
-        width: 120px; /* Reduce image size on smaller screens */
+        width: 120px;
     }
 
     h1 {
-        font-size: 30px; /* Adjust heading size */
+        font-size: 30px;
     }
 
     h2 {
-        font-size: 28px; /* Adjust subheading size */
+        font-size: 28px;
     }
 }
 
 @media (max-width: 480px) {
-    /* Contact Form */
     .contact-form {
-        padding: 10px; /* Further reduce padding for very small screens */
+        padding: 10px;
     }
 
-    /* Form elements */
     input[type="text"],
     input[type="email"],
     select {
@@ -283,19 +282,18 @@ button:hover {
     }
 
     .checkbox-group {
-        grid-template-columns: 1fr; /* Stack checkboxes vertically */
+        grid-template-columns: 1fr;
     }
 
-    /* Header adjustments */
     header img {
-        width: 100px; /* Further reduce image size */
+        width: 100px;
     }
 
     h1 {
-        font-size: 24px; /* Further reduce heading size */
+        font-size: 24px;
     }
 
     h2 {
-        font-size: 22px; /* Further reduce subheading size */
+        font-size: 22px;
     }
 }

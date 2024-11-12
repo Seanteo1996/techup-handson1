@@ -19,125 +19,125 @@
 
 <body>
 
-<header>
-    <div class="header-content">
-        <img src="../assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
-        <h1>Mentee-Meets-Mentor (MMM)</h1>
-    </div>    
-</header>   
+    <header>
+        <div class="header-content">
+            <img src="../assets/snlogo.png" alt="Mentorship Image"> <!-- Add your image here -->
+            <h1>Mentee-Meets-Mentor (MMM)</h1>
+        </div>    
+    </header>   
 
-<script src="mentee form script.js"></script> 
+    <script src="mentee form script.js"></script> 
 
-<form class="contact-form" onsubmit="return validateForm()"> 
-    <div class="question">
-        <h2>Mentee Details</h2>
-    </div>
-
+    <form class="contact-form" onsubmit="return validateForm()"> 
         <div class="question">
-            <h3>First Name:</h3>
-            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+            <h2>Mentee Details</h2>
         </div>
 
-        <div class="question">
-            <h3>Last Name:</h3>
-            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
-        </div>
-   
+            <div class="question">
+                <h3>First Name:</h3>
+                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+            </div>
 
-        <div class="question">
-            <h3>Work Email:</h3>
-            <input type="email" id="email" name="email" required placeholder="youremail@example.gov.sg" required>
-            <span id="email-error-message" style="color: red; display: none;">Invalid email. Please enter a valid work email.</span>
-        </div>
- 
-        <div class="question">
-            <h3>Agency:</h3>
-            <p style="font-size: 0.9em; margin-top: 0;">If unable to find your agency, select 'Others'</p>
-            <div class="dropdown">
-                <input type="text" id="agency-input" placeholder="Type to search for your agency" onkeyup="filterAgencies()" oninput="checkAgency()" required>
-                <div id="agency-list" class="dropdown-list">
-                    <div class="dropdown-item" onclick="selectAgency('A*STAR')">A*STAR</div>
-                    <div class="dropdown-item" onclick="selectAgency('CAAS')">CAAS</div>
-                    <div class="dropdown-item" onclick="selectAgency('CPFB')">CPFB</div>
-                    <div class="dropdown-item" onclick="selectAgency('CSA')">CSA</div>
-                    <div class="dropdown-item" onclick="selectAgency('CSC')">CSC</div>
-                    <div class="dropdown-item" onclick="selectAgency('CSIT')">CSIT</div>
-                    <div class="dropdown-item" onclick="selectAgency('DIS')">DIS</div>
-                    <div class="dropdown-item" onclick="selectAgency('DSTA')">DSTA</div>
-                    <div class="dropdown-item" onclick="selectAgency('EDB')">EDB</div>
-                    <div class="dropdown-item" onclick="selectAgency('Enterprise SG')">Enterprise SG</div>
-                    <div class="dropdown-item" onclick="selectAgency('GovTech')">GovTech</div>
-                    <div class="dropdown-item" onclick="selectAgency('HDB')">HDB</div>
-                    <div class="dropdown-item" onclick="selectAgency('HTX')">HTX</div>
-                    <div class="dropdown-item" onclick="selectAgency('ICSA')">ICSA</div>
-                    <div class="dropdown-item" onclick="selectAgency('IMDA')">IMDA</div>
-                    <div class="dropdown-item" onclick="selectAgency('IRAS')">IRAS</div>
-                    <div class="dropdown-item" onclick="selectAgency('JTC')">JTC</div>
-                    <div class="dropdown-item" onclick="selectAgency('LTA')">LTA</div>
-                    <div class="dropdown-item" onclick="selectAgency('MAS')">MAS</div>
-                    <div class="dropdown-item" onclick="selectAgency('MCCY')">MCCY</div>
-                    <div class="dropdown-item" onclick="selectAgency('MDDI (SNDGO)')">MDDI (SNDGO)</div>
-                    <div class="dropdown-item" onclick="selectAgency('MDDI (non-SNDGO)')">MDDI (non-SNDGO)</div>
-                    <div class="dropdown-item" onclick="selectAgency('MFA')">MFA</div>
-                    <div class="dropdown-item" onclick="selectAgency('MHA')">MHA</div>
-                    <div class="dropdown-item" onclick="selectAgency('MINDEF')">MINDEF</div>
-                    <div class="dropdown-item" onclick="selectAgency('MND')">MND</div>
-                    <div class="dropdown-item" onclick="selectAgency('MOE')">MOE</div>
-                    <div class="dropdown-item" onclick="selectAgency('MOF')">MOF</div>
-                    <div class="dropdown-item" onclick="selectAgency('MOH')">MOH</div>
-                    <div class="dropdown-item" onclick="selectAgency('MOM')">MOM</div>
-                    <div class="dropdown-item" onclick="selectAgency('MOT')">MOT</div>
-                    <div class="dropdown-item" onclick="selectAgency('MPA')">MPA</div>
-                    <div class="dropdown-item" onclick="selectAgency('MSE')">MSE</div>
-                    <div class="dropdown-item" onclick="selectAgency('MSF')">MSF</div>
-                    <div class="dropdown-item" onclick="selectAgency('MSF')">MTI</div>
-                    <div class="dropdown-item" onclick="selectAgency('NLB')">NLB</div>
-                    <div class="dropdown-item" onclick="selectAgency('NRF')">NRF</div>
-                    <div class="dropdown-item" onclick="selectAgency('PMO')">PMO</div>
-                    <div class="dropdown-item" onclick="selectAgency('PSD')">PSD</div>
-                    <div class="dropdown-item" onclick="selectAgency('PUB')">PUB</div>
-                    <div class="dropdown-item" onclick="selectAgency('Sentosa')">Sentosa</div>
-                    <div class="dropdown-item" onclick="selectAgency('SLA')">SLA</div>
-                    <div class="dropdown-item" onclick="selectAgency('SSG')">SSG</div>
-                    <div class="dropdown-item" onclick="selectAgency('STB')">STB</div>
-                    <div class="dropdown-item" onclick="selectAgency('SUPCOURT')">SUPCOURT</div>
-                    <div class="dropdown-item" onclick="selectAgency('Synapxe')">Synapxe</div>
-                    <div class="dropdown-item" onclick="selectAgency('URA')">URA</div>
-                    <div class="dropdown-item" onclick="selectAgency('others')">Others</div>
+            <div class="question">
+                <h3>Last Name:</h3>
+                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+            </div>
+    
+
+            <div class="question">
+                <h3>Work Email:</h3>
+                <input type="email" id="email" name="email" required placeholder="youremail@example.gov.sg" required>
+                <span id="email-error-message" style="color: red; display: none;">Invalid email. Please enter a valid work email.</span>
+            </div>
+    
+            <div class="question">
+                <h3>Agency:</h3>
+                <p style="font-size: 0.9em; margin-top: 0;">If unable to find your agency, select 'Others'</p>
+                <div class="dropdown">
+                    <input type="text" id="agency-input" placeholder="Type to search for your agency" onkeyup="filterAgencies()" oninput="checkAgency()" required>
+                    <div id="agency-list" class="dropdown-list">
+                        <div class="dropdown-item" onclick="selectAgency('A*STAR')">A*STAR</div>
+                        <div class="dropdown-item" onclick="selectAgency('CAAS')">CAAS</div>
+                        <div class="dropdown-item" onclick="selectAgency('CPFB')">CPFB</div>
+                        <div class="dropdown-item" onclick="selectAgency('CSA')">CSA</div>
+                        <div class="dropdown-item" onclick="selectAgency('CSC')">CSC</div>
+                        <div class="dropdown-item" onclick="selectAgency('CSIT')">CSIT</div>
+                        <div class="dropdown-item" onclick="selectAgency('DIS')">DIS</div>
+                        <div class="dropdown-item" onclick="selectAgency('DSTA')">DSTA</div>
+                        <div class="dropdown-item" onclick="selectAgency('EDB')">EDB</div>
+                        <div class="dropdown-item" onclick="selectAgency('Enterprise SG')">Enterprise SG</div>
+                        <div class="dropdown-item" onclick="selectAgency('GovTech')">GovTech</div>
+                        <div class="dropdown-item" onclick="selectAgency('HDB')">HDB</div>
+                        <div class="dropdown-item" onclick="selectAgency('HTX')">HTX</div>
+                        <div class="dropdown-item" onclick="selectAgency('ICSA')">ICSA</div>
+                        <div class="dropdown-item" onclick="selectAgency('IMDA')">IMDA</div>
+                        <div class="dropdown-item" onclick="selectAgency('IRAS')">IRAS</div>
+                        <div class="dropdown-item" onclick="selectAgency('JTC')">JTC</div>
+                        <div class="dropdown-item" onclick="selectAgency('LTA')">LTA</div>
+                        <div class="dropdown-item" onclick="selectAgency('MAS')">MAS</div>
+                        <div class="dropdown-item" onclick="selectAgency('MCCY')">MCCY</div>
+                        <div class="dropdown-item" onclick="selectAgency('MDDI (SNDGO)')">MDDI (SNDGO)</div>
+                        <div class="dropdown-item" onclick="selectAgency('MDDI (non-SNDGO)')">MDDI (non-SNDGO)</div>
+                        <div class="dropdown-item" onclick="selectAgency('MFA')">MFA</div>
+                        <div class="dropdown-item" onclick="selectAgency('MHA')">MHA</div>
+                        <div class="dropdown-item" onclick="selectAgency('MINDEF')">MINDEF</div>
+                        <div class="dropdown-item" onclick="selectAgency('MND')">MND</div>
+                        <div class="dropdown-item" onclick="selectAgency('MOE')">MOE</div>
+                        <div class="dropdown-item" onclick="selectAgency('MOF')">MOF</div>
+                        <div class="dropdown-item" onclick="selectAgency('MOH')">MOH</div>
+                        <div class="dropdown-item" onclick="selectAgency('MOM')">MOM</div>
+                        <div class="dropdown-item" onclick="selectAgency('MOT')">MOT</div>
+                        <div class="dropdown-item" onclick="selectAgency('MPA')">MPA</div>
+                        <div class="dropdown-item" onclick="selectAgency('MSE')">MSE</div>
+                        <div class="dropdown-item" onclick="selectAgency('MSF')">MSF</div>
+                        <div class="dropdown-item" onclick="selectAgency('MSF')">MTI</div>
+                        <div class="dropdown-item" onclick="selectAgency('NLB')">NLB</div>
+                        <div class="dropdown-item" onclick="selectAgency('NRF')">NRF</div>
+                        <div class="dropdown-item" onclick="selectAgency('PMO')">PMO</div>
+                        <div class="dropdown-item" onclick="selectAgency('PSD')">PSD</div>
+                        <div class="dropdown-item" onclick="selectAgency('PUB')">PUB</div>
+                        <div class="dropdown-item" onclick="selectAgency('Sentosa')">Sentosa</div>
+                        <div class="dropdown-item" onclick="selectAgency('SLA')">SLA</div>
+                        <div class="dropdown-item" onclick="selectAgency('SSG')">SSG</div>
+                        <div class="dropdown-item" onclick="selectAgency('STB')">STB</div>
+                        <div class="dropdown-item" onclick="selectAgency('SUPCOURT')">SUPCOURT</div>
+                        <div class="dropdown-item" onclick="selectAgency('Synapxe')">Synapxe</div>
+                        <div class="dropdown-item" onclick="selectAgency('URA')">URA</div>
+                        <div class="dropdown-item" onclick="selectAgency('others')">Others</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="question" id="other-agency-question" style="display: none;">
-            <h3>If Others, please specify:</h3>
-            <input type="text" id="other-agency-input" placeholder="Enter your agency" onkeyup="checkAgency()" required>
-        </div>    
+            <div class="question" id="other-agency-question" style="display: none;">
+                <h3>If Others, please specify:</h3>
+                <input type="text" id="other-agency-input" placeholder="Enter your agency" onkeyup="checkAgency()" required>
+            </div>    
 
-        <div class="question">
-                <h3>Which areas are you keen on being mentored in?</h3>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="interests" value="AI & Machine Learning"> AI & Machine Learning</label>
-                    <label><input type="checkbox" name="interests" value="Career Development"> Career Development</label>
-                    <label><input type="checkbox" name="interests" value="Cloud Computing"> Cloud Computing</label>
-                    <label><input type="checkbox" name="interests" value="Cybersecurity"> Cybersecurity</label>
-                    <label><input type="checkbox" name="interests" value="Leadership and Management"> Leadership and Management</label>
-                    <label><input type="checkbox" name="interests" value="Web Development"> Web Development</label>
-                    <label><input type="checkbox" name="interests" value="Mobile App Development"> Mobile App Development</label>
-                    <label><input type="checkbox" name="interests" value="Data Science & Analytics"> Data Science & Analytics</label>
-                    <label><input type="checkbox" name="interests" value="Software Engineering"> Software Engineering</label>
-                    <label><input type="checkbox" name="interests" value="User Experience (UX) & User Interface (UI)"> User Experience (UX) & User Interface (UI)</label>
-                    <label><input type="checkbox" name="interests" value="Tech Policy Management"> Tech Policy Management</label> 
-                </div>
-                <span id="checkbox-error-message" style="color: red; display: none;">Please select at least 1 area.</span>  
-        </div>
-        
-    <button type="submit">Submit</button> 
+            <div class="question">
+                    <h3>Which areas are you keen on being mentored in?</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="interests" value="AI & Machine Learning"> AI & Machine Learning</label>
+                        <label><input type="checkbox" name="interests" value="Career Development"> Career Development</label>
+                        <label><input type="checkbox" name="interests" value="Cloud Computing"> Cloud Computing</label>
+                        <label><input type="checkbox" name="interests" value="Cybersecurity"> Cybersecurity</label>
+                        <label><input type="checkbox" name="interests" value="Leadership and Management"> Leadership and Management</label>
+                        <label><input type="checkbox" name="interests" value="Web Development"> Web Development</label>
+                        <label><input type="checkbox" name="interests" value="Mobile App Development"> Mobile App Development</label>
+                        <label><input type="checkbox" name="interests" value="Data Science & Analytics"> Data Science & Analytics</label>
+                        <label><input type="checkbox" name="interests" value="Software Engineering"> Software Engineering</label>
+                        <label><input type="checkbox" name="interests" value="User Experience (UX) & User Interface (UI)"> User Experience (UX) & User Interface (UI)</label>
+                        <label><input type="checkbox" name="interests" value="Tech Policy Management"> Tech Policy Management</label> 
+                    </div>
+                    <span id="checkbox-error-message" style="color: red; display: none;">Please select at least 1 area.</span>  
+            </div>
+            
+        <button type="submit">Submit</button> 
 
-</form>
+    </form>
 
-<div class="loading" id="loadingMessage" style="display: none;">
-    <div class="spinner"></div>
-    <p>Finding Mentors for you...</p>
+    <div class="loading" id="loadingMessage" style="display: none;">
+        <div class="spinner"></div>
+        <p>Finding Mentors for you...</p>
 
 <script>
     function validateCheckboxes() {

@@ -27,8 +27,8 @@ body img {
     text-align: center;
     padding: 50px 20px;
     overflow: hidden;
-    width:1005:; /* Container width */
-    margin: 0 auto; /* Center the hero section */
+    width:100%; /* Container width */
+    margin: 0; /* Center the hero section */
 }
 
 .hero h1 {
