@@ -19,7 +19,7 @@ body {
     text-align: center;
     padding: 20px 20px; /* Added padding to give it height */
     overflow: hidden;
-    height:50%;
+    height:100%;
 }
 
 .hero .hero-content {
@@ -253,14 +253,20 @@ footer {
 }
 
 .testimonial-cards {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-    width: calc(33.33% * 12); /* Make the total width of the container 12 cards */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 20px; /* Space between grid items */
+    justify-items: center; /* Horizontally center the items */
+    align-items: center; /* Vertically center the items */
+    max-width: 1200px; /* Optional: Set a max width to prevent cards from stretching too wide */
+    margin: 0 auto; /* Center the grid container */
 }
 
 .testimonial-card {
-    width: 33.33%; /* Show 3 testimonials at a time */
+    width: 100%; /* Show 3 testimonials at a time */
+    height: 100%;
     padding: 30px;
+    align-items: center; /* Vertically center the items */
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ddd;
