@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-image: url('../assets/mentoring bg.png'); /* Change to your image path */
@@ -7,7 +8,6 @@ body {
     background-color: #f0f4f8;
     margin: 0;
     padding: 0;
-
 }
 
 header {
@@ -16,7 +16,6 @@ header {
     color: black;
     padding: 20px;
     margin-bottom: 30px;
-    
 }
 
 .header-content {
@@ -24,20 +23,22 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px; /* Space between the image and text */
+    flex-wrap: wrap; /* Ensure it wraps on small screens */
 }
 
 header img {
     width: 150px;
     height: auto;
+    margin-bottom: 10px;
 }
 
 h1 {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 36px; /* Adjust the size as necessary */
-    color: #000000; /* Optional: Adjust text color */
+    font-size: 36px;
+    color: #000000;
 }
 
-
+/* Sub-headings */
 h2 {
     text-align: center;
     color: #333;
@@ -45,6 +46,7 @@ h2 {
     margin: 10px;
 }
 
+/* Contact Form */
 .contact-form {
     max-width: 600px;
     width: 100%; /* Makes the form responsive */
@@ -56,8 +58,9 @@ h2 {
     transform: scale(0.9); /* Zoom out to 80% */
 }
 
+/* Input fields */
 .question {
-    width:100%;
+    width: 100%;
     margin-bottom: 20px;
 }
 
@@ -79,29 +82,6 @@ select,
     box-sizing: border-box; /* Ensures padding and border are included in the width */
 }
 
-/* Ensure that the input fields (including agency input) are full-width */
-input[type="text"],
-input[type="email"],
-#agency-input { 
-    width: 100%; /* Full width to align with other inputs */
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box; /* Ensures padding/borders are included in the width */
-}
-
-#agency {
-    /* This specific rule ensures #agency input takes up full width and has same styling */
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%; /* Ensures it fills the container */
-    box-sizing: border-box; /* Include padding and borders in width */
-}
-
 input[type="text"]:focus,
 input[type="email"]:focus,
 select:focus {
@@ -109,6 +89,7 @@ select:focus {
     outline: none;
 }
 
+/* Checkbox group */
 .checkbox-group {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Makes checkboxes adjust based on available space */
@@ -121,7 +102,7 @@ select:focus {
     font-size: 16px;
 }
 
-/* Make the spinner overlay take full width and height of the screen */
+/* Spinner Overlay */
 .loading {
     display: none; /* Initially hidden */
     position: fixed;
@@ -149,13 +130,12 @@ select:focus {
     margin: 10px auto;
 }
 
-/* Spinner animation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-
+/* Button Styles */
 button {
     background-color: #4CAF50; /* Smart Nation red */
     color: white;
@@ -169,28 +149,31 @@ button {
 }
 
 button:hover {
-    background-color: #45a049; /* Darker shade for hover effect */
-    color: white; /* Change text color on hover */
+    background-color: #45a049;
+    color: white;
 }
 
+/* Hide 'Other Agency' field */
 #other-agency {
-    display: none; /* Initially hidden, but controlled by JavaScript */
+    display: none; /* Initially hidden */
 }
 
+/* Icon Size */
 .icon {
     width: 48px;
     height: 48px;
 }
 
+/* Name Container */
 .name-container {
     display: flex;
-    flex-wrap: wrap; /* Ensures elements wrap on small screens */
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .name-container .question {
-    flex: 1; /* Allows the input fields to share equal space */
+    flex: 1;
     margin-right: 10px;
 }
 
@@ -206,89 +189,115 @@ button:hover {
     border: 1px solid #ccc;
 }
 
-.checkbox-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates 2 equal columns */
-    gap: 15px; /* Adjusts the spacing between checkboxes */
-}
-
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-}
-
+/* Dropdown Styles */
 .dropdown {
     position: relative;
     display: inline-block;
-    width:100%;
+    width: 100%;
 }
 
 .dropdown input {
-    width: 100%; /* Makes the input field responsive */
+    width: 100%;
     padding: 10px;
-    box-sizing: border-box; /* Ensures padding is included in the width */
+    box-sizing: border-box;
 }
 
-/* Styling for the dropdown list */
 .dropdown-list {
-    display: none; /* Hide by default */
+    display: none;
     position: absolute;
     background-color: white;
     border: 1px solid #ccc;
-    width: 100%; /* Ensure it takes the full width of the input */
-    max-height: 200px; /* Limit height */
-    overflow-y: auto; /* Enable scroll if too many options */
-    z-index: 1000; /* Ensure it appears above other elements */
-    box-sizing: border-box; /* Include padding/borders in width */
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
-/* Styling for each dropdown item */
 .dropdown-item {
     padding: 10px;
     cursor: pointer;
     font-size: 16px;
 }
 
-/* Hover effect for each item in the dropdown */
 .dropdown-item:hover {
     background-color: #f0f0f0;
 }
 
-/* Ensure the dropdown is shown when the user types */
 .dropdown.active .dropdown-list {
     display: block;
 }
 
-header h1 {
-    font-size: 36px; /* Consider adjusting this if needed */
-}
-
-h2 {
-    font-size: 24px; /* Match the header size or choose your desired size */
-}
-
-h3 {
-    font-size: 20px; /* Example for another heading */
-}
-
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
+    /* Contact Form */
     .contact-form {
-        padding: 20px; /* Reduce padding on smaller screens */
+        padding: 15px; /* Reduce padding on smaller screens */
     }
 
+    /* Name Container */
     .name-container {
         flex-direction: column; /* Stack name fields vertically */
+    }
+
+    /* Checkbox group */
+    .checkbox-group {
+        grid-template-columns: 1fr; /* Stack checkboxes vertically */
+    }
+
+    /* Form elements */
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%; /* Ensure form elements fill the container on mobile */
+    }
+
+    /* Header adjustments */
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header img {
+        width: 120px; /* Reduce image size on smaller screens */
+    }
+
+    h1 {
+        font-size: 30px; /* Adjust heading size */
+    }
+
+    h2 {
+        font-size: 28px; /* Adjust subheading size */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Contact Form */
+    .contact-form {
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
+
+    /* Form elements */
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
     }
 
     .checkbox-group {
         grid-template-columns: 1fr; /* Stack checkboxes vertically */
     }
 
-    /* Ensure form elements fill the container */
-    input[type="text"],
-    input[type="email"],
-    select {
-        width: 100%; /* Ensure form elements fill the container on mobile */
+    /* Header adjustments */
+    header img {
+        width: 100px; /* Further reduce image size */
+    }
+
+    h1 {
+        font-size: 24px; /* Further reduce heading size */
+    }
+
+    h2 {
+        font-size: 22px; /* Further reduce subheading size */
     }
 }
