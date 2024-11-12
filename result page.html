@@ -27,7 +27,6 @@
     </header>
 
     <main class="container">
-        <!-- Filter Panel (Initially hidden) -->
         <div id="filterPanel" class="filter-panel">
             <div class="filter-header">
                 <h3>Mentoring Areas</h3>
@@ -40,108 +39,114 @@
 
                 <!-- Mentoring Areas Section -->
                 <section>
-                    <div class="checkbox-group">
-                        <div class="checkbox-row">
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="AI & Machine Learning" onclick="applyFilters()"> AI & Machine Learning
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Career Development" onclick="applyFilters()"> Career Development
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Cloud Computing" onclick="applyFilters()"> Cloud Computing
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Cybersecurity" onclick="applyFilters()"> Cybersecurity
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Software Engineering" onclick="applyFilters()"> Software Engineering
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Web Development" onclick="applyFilters()"> Web Development
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Data Science & Analytics" onclick="applyFilters()"> Data Science & Analytics
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Mobile App Development" onclick="applyFilters()"> Mobile App Development
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Leadership and Management" onclick="applyFilters()"> Leadership and Management
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="Tech Policy Management" onclick="applyFilters()"> Tech Policy Management
-                            </label>
-                            <label class="checkbox-label mentoring-area-checkbox-label">
-                                <input type="checkbox" value="User Experience (UX) & User Interface (UI)" onclick="applyFilters()"> User Experience (UX) & User Interface (UI)
-                            </label>
-                        </div>
+                    <div class="mentoring-areas-filters">
+                        <section class="area-section">   
+                            <div class="checkbox-group">
+                                <div class="checkbox-row">
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="AI & Machine Learning" onclick="applyFilters()"> AI & Machine Learning
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Career Development" onclick="applyFilters()"> Career Development
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Cloud Computing" onclick="applyFilters()"> Cloud Computing
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Cybersecurity" onclick="applyFilters()"> Cybersecurity
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Software Engineering" onclick="applyFilters()"> Software Engineering
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Web Development" onclick="applyFilters()"> Web Development
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Data Science & Analytics" onclick="applyFilters()"> Data Science & Analytics
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Mobile App Development" onclick="applyFilters()"> Mobile App Development
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Leadership and Management" onclick="applyFilters()"> Leadership and Management
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="Tech Policy Management" onclick="applyFilters()"> Tech Policy Management
+                                    </label>
+                                    <label class="checkbox-label mentoring-area-checkbox-label">
+                                        <input type="checkbox" value="User Experience (UX) & User Interface (UI)" onclick="applyFilters()"> User Experience (UX) & User Interface (UI)
+                                    </label>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </section>
 
-                <div class="agency-exp-filters"> 
-                    <section>
-                        <h3>Years of Experience</h3>
-                        <div class="checkbox-group">
-                            <div class="checkbox-row">
-                                <!-- First Column of Checkboxes -->
+                <section>
+                    <div class="agency-exp-filters"> 
+                        <section class="exp-section">      
+                            <h3>Years of Experience</h3>
+                            <div class="checkbox-group">
                                 <div class="checkbox-row">
-                                    <label class="checkbox-label exp-checkbox-label">
-                                        <input type="checkbox" value="5 - 10" onclick="applyFilters()"> 5 - 10 Years
-                                    </label>
-                                    <label class="checkbox-label exp-checkbox-label">
-                                        <input type="checkbox" value="11 - 15" onclick="applyFilters()"> 11 - 15 Years
-                                    </label>
-                                    <label class="checkbox-label exp-checkbox-label">
-                                        <input type="checkbox" value="16 - 20" onclick="applyFilters()"> 16 - 20 Years
-                                    </label>
-                                    <label class="checkbox-label exp-checkbox-label">
-                                        <input type="checkbox" value="21 - 25" onclick="applyFilters()"> 21 - 25 Years
-                                    </label>
-                                    <label class="checkbox-label exp-checkbox-label">
-                                        <input type="checkbox" value="26 - 30" onclick="applyFilters()"> 26 - 30 Years
-                                    </label>
-                                    
+                                    <!-- First Column of Checkboxes -->
+                                    <div class="checkbox-row">
+                                        <label class="checkbox-label exp-checkbox-label">
+                                            <input type="checkbox" value="5 - 10" onclick="applyFilters()"> 5 - 10 Years
+                                        </label>
+                                        <label class="checkbox-label exp-checkbox-label">
+                                            <input type="checkbox" value="11 - 15" onclick="applyFilters()"> 11 - 15 Years
+                                        </label>
+                                        <label class="checkbox-label exp-checkbox-label">
+                                            <input type="checkbox" value="16 - 20" onclick="applyFilters()"> 16 - 20 Years
+                                        </label>
+                                        <label class="checkbox-label exp-checkbox-label">
+                                            <input type="checkbox" value="21 - 25" onclick="applyFilters()"> 21 - 25 Years
+                                        </label>
+                                        <label class="checkbox-label exp-checkbox-label">
+                                            <input type="checkbox" value="26 - 30" onclick="applyFilters()"> 26 - 30 Years
+                                        </label>
+                                        
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-
-
-                    <!-- Agencies Section -->
-                    <section>
-                        <div class="checkbox-group">
+                        </section>
+                        <!-- Agencies Section -->
+                        <section class="agency-ministry-section">
                             <h3>Agencies/Ministries</h3>
-                            <div class="checkbox-row">
-                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> CSA</label>
-                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> GovTech</label>
-                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> IMDA</label>
-                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (SNDGO)</label>
-                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (non-SNDGO)</label>
-                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> NLB</label>
-                            </div>
+                                <div class="checkbox-group">
+                                <div class="checkbox-row">
+                                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> CSA</label>
+                                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> GovTech</label>
+                                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> IMDA</label>
+                                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (SNDGO)</label>
+                                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (non-SNDGO)</label>
+                                    <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> NLB</label>
+                                </div>
+                                </div>
+                        </section>
+                        <div class="filter-actions">
+                            <button id="resetButton" onclick="resetFilters()">Clear All</button>
                         </div>
-                    </section>
-
-                <!-- Buttons for Apply Filters and Clear All -->
-                    <div class="filter-actions">
-                        <button id="resetButton" onclick="resetFilters()">Clear All</button>
                     </div>
-                </div>
 
+
+                </section> 
+                
             </div>
         </div>
 
         <!-- Results container where profiles will be displayed -->
-        <div class="more-filter-container">
+
+        <div class="display-results-container">
             <div class="results" id="resultsContainer">
                 <!-- Profiles will be populated here dynamically -->
             </div>
-
+            
             <div id="paginationControls" class="pagination-controls">
                 <!-- Pagination controls will be populated here dynamically -->
             </div>
         </div>
+
     </main>
 
     <script src="mentor script.js"></script>
