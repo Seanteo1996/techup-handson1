@@ -267,24 +267,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to check if the profile's years of experience matches the selected range
 function checkExperience(profileExperience) {
-    console.log('Profile Experience:', profileExperience);
-    // Check if profileExperience is a valid string and contains the expected structure
     if (typeof profileExperience !== 'string' || !profileExperience.includes('Years of Experience:')) {
-        console.log('Invalid profile experience format:', profileExperience);
-        return false; // Invalid experience format
+        return false;
     }
 
-    // Extract the number after "Years of Experience:"
-    const profileYearsString = profileExperience.split(':')[1]?.trim(); // Split by colon and trim any spaces
+    // Ensure profile years are correctly parsed
+    const profileYearsString = profileExperience.split(':')[1]?.trim();
     const profileYears = parseInt(profileYearsString, 10);
-    console.log('Parsed Profile Years:', profileYears);
 
-    // If no years are specified (e.g., 'N/A' or empty), return false
     if (isNaN(profileYears)) {
         return false;
     }
 
-    // Check if the profile's years of experience match the selected ranges
+    // Match against selected experience ranges
     return selectedExperienceRanges.some(range => {
         const [start, end] = range.split(' - ').map(Number);
         return profileYears >= start && profileYears <= end;
@@ -292,11 +287,12 @@ function checkExperience(profileExperience) {
 }
 
 
+
 // Setup listeners for filter inputs
 function setupFilterListeners() {
     const agencyFilters = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
-    const experienceFilters = document.querySelectorAll('.checkbox-column input[type="checkbox"]'); // New Experience Filters
+    const experienceFilters = document.querySelectorAll('.exp-checkbox-label input[type="checkbox"]'); // New Experience Filters
 
     agencyFilters.forEach(input => {
         input.addEventListener('change', () => {
@@ -326,7 +322,7 @@ function setupFilterListeners() {
 function applyFilters() {
     const agencyFilters = document.querySelectorAll('.agency-checkbox-label input[type="checkbox"]');
     const areaFilters = document.querySelectorAll('.mentoring-area-checkbox-label input[type="checkbox"]');
-    const experienceFilters = document.querySelectorAll('.checkbox-column input[type="checkbox"]'); // New Experience Filters
+    const experienceFilters = document.querySelectorAll('.exp-checkbox-label input[type="checkbox"]'); // New Experience Filters
 
     // Get selected agencies and areas
     const selectedAgencies = Array.from(agencyFilters).filter(input => input.checked).map(input => input.nextSibling.nodeValue.trim());
@@ -376,3 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Store the email value in a hidden input (or in your data structure for use later)
     // Optionally, you can pass it to the next page in the form submission or URL.
 });
+
+console.log("Profile Experience String:", profileExperience);
+console.log("Experience Ranges Selected:", selectedExperienceRanges);
