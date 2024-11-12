@@ -85,7 +85,7 @@ header h1 {
     flex-direction: column;
     transition: all 0.3s ease;
     height: auto;
-    margin-bottom: 10px;
+
 }
 
 .filter-header {
@@ -93,7 +93,7 @@ header h1 {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px 20px;
+    padding: 5px 20px;
     margin: 0px;
     height: 15%;
 }
@@ -109,7 +109,6 @@ h3 {
     font-weight: 600;
     color: #333;
     margin: 10px 0;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -193,19 +192,23 @@ h3 {
 
 .display-results-container{
     height: auto;
-    margin: - 20px;
+    margin: -20px; /* Correcting the spacing syntax */
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the top */
+    align-items: flex-start;     /* Aligns items at the start horizontally */
+    flex-direction: column;
+    padding-left:20px;
 
 }
 
 .results {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin: auto;
     width: 100%;
-    align-items: flex-start;
-    justify-items: center;
-    height: auto;
+    align-items: start;
+    height: 800px;
 }
 
 .profile {
@@ -218,12 +221,11 @@ h3 {
     background: linear-gradient(145deg, #f9f9f9, #e9e9e9);
     transition: box-shadow 0.3s;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 300px;
+    width: 400px;;
     position: relative;
     transform: scale(0.8);
-    height: auto;
-    min-height: 500px;
+    height: 48%;
+    margin-top: 0;
 }
 
 .profile-pic {
@@ -231,37 +233,42 @@ h3 {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .profile-info {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 10px;
-    flex-grow: 1;
-    height:10%;
+    margin: 5px;
+    padding: 0 5px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .profile-info h3 {
     margin: 0;
-    font-size: 1.8em;
+    font-size: 1.4em;
     font-weight: 600;
+    line-height: 1.2;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .title {
-    font-size: 1.2em;
+    font-size: 0.9em;
     color: #555555;
     margin: 2px 0;
     font-weight: 500;
+    line-height: 1.2;
 }
 
 .agencies {
-    font-size: 1.1em;
+    font-size: 1.0em;
     color: #333;
     margin: 2px 0;
     font-weight: 600;
+    line-height: 1.2;
 }
 
 .profile-btn {
@@ -270,7 +277,6 @@ h3 {
     background-color: #1E88E5;
     color: white;
     transition: background-color 0.3s, transform 0.2s;
-    margin-top: auto;
     margin-bottom: 10px;
     width: auto;
     font-size: 18px;
@@ -285,20 +291,29 @@ h3 {
 .pagination-controls {
     position: sticky;
     bottom: 0;
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;     /* Centers items vertically */
+    width: 100%;             /* Ensures the container spans the full width */
+    padding: 5px 0;         /* Adds padding to the top and bottom for spacing */
+    font-size: 12px;         /* Adjust font size as needed */
 }
 
+
+
 .pagination-controls button {
-    padding: 2px 5px;
+    padding: 2px 10px;
     font-size: 12px;
-    margin: 0px 20px;
+    margin: 0px 10px;
     border: none;
     border-radius: 5px;
     background-color: #FF5733;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
-    height: 30px;
-    width: 5%;
+    height: 20px;
+    width: auto;
+
 }
 
 .pagination-controls button:disabled {
@@ -423,7 +438,8 @@ h3 {
 }
 
 .profile-info .experience {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 1.0em
 }
 
 .mentoring-btn {
@@ -431,7 +447,7 @@ h3 {
     color: white;
     font-size: 12px;
     font-weight: 600;
-    padding: 8px;
+    padding: 5px;
     border: none;
     border-radius: 20px;
     cursor: pointer;

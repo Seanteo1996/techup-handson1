@@ -19,7 +19,7 @@ body {
 
 /* Profile Container */
 #mentor-profile {
-    width: 50%;
+    width: 80%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -201,12 +201,13 @@ h3 {
 
 /* About Mentor Section */
 #about-mentor-details {
-    width: 50%;
+    width: 80%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
+    height:fit-content;
 }
 
 #about-mentor-details h2 {
@@ -281,7 +282,7 @@ h3 {
     align-items: center;      /* Vertically center the button */
     height: 100px;            /* Adjust based on your layout */
     margin: 20px;         /* Optional margin for spacing above */
-    padding:0;
+    padding-bottom:20px;;
     gap:20px;
 }
 
@@ -290,7 +291,7 @@ h3 {
     background-color: #4CAF50;  /* Green background */
     border: 1px solid #ccc;
     color: white;               /* White text color */
-    font-size: 20px;            /* Text size */
+    font-size: 15px;            /* Text size */
     padding: 15px 30px;         /* Padding to make the button larger */
     border: none;               /* Remove default border */
     border-radius: 25px;        /* Rounded corners */
@@ -303,7 +304,7 @@ h3 {
     background-color: #d34b4b; /* Customize as needed */
     border: 1px solid #ccc;
     color: white;
-    font-size: 20px;            /* Text size */
+    font-size: 15px;            /* Text size */
     padding: 15px 30px;         /* Padding to make the button larger */
     border: none;               /* Remove default border */
     border-radius: 25px;        /* Rounded corners */
