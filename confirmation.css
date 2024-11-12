@@ -9,7 +9,7 @@ body {
     max-width: 600px;
     margin: 50px auto;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -91,13 +91,14 @@ h1 {
 
 /* Style the container to center the button */
 #back-to-mentor-results-container{
+    position: sticky;
+    bottom: 0;
     display: flex;
-    justify-content: center;  /* Horizontally center the button */
-    align-items: center;      /* Vertically center the button */
-    height: 100px;            /* Adjust based on your layout */
-    margin: 20px;         /* Optional margin for spacing above */
-    padding:0;
-    gap:20px;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;     /* Centers items vertically */
+    width: 100%;             /* Ensures the container spans the full width */
+    padding: 5px 0;         /* Adds padding to the top and bottom for spacing */
+    padding-top: 20px;
 }
 
 /* Style the button */
@@ -105,7 +106,7 @@ h1 {
     background-color: #4CAF50;  /* Green background */
     border: 1px solid #ccc;
     color: white;               /* White text color */
-    font-size: 20px;            /* Text size */
+    font-size: 15px;            /* Text size */
     padding: 15px 30px;         /* Padding to make the button larger */
     border: none;               /* Remove default border */
     border-radius: 25px;        /* Rounded corners */
