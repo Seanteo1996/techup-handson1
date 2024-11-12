@@ -30,6 +30,7 @@ header {
 
 .container {
     display: flex;
+    flex-direction: column; /* Stack filters on top of results */
     width: 100%;
     height: 100%;
     margin: 0;
@@ -45,9 +46,9 @@ header {
 
 .filters {
     padding: 10px;
-    border-right: 1px solid #ccc;
-    width: 30%; /* Reduced width for mobile */
-    height: 100%;
+    border-bottom: 1px solid #ccc; /* Border between filters and results */
+    width: 100%;
+    height: auto;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.9);
     transition: width 0.3s ease, opacity 0.3s ease;
@@ -65,7 +66,7 @@ header {
     padding: 10px;
     margin: 0px;
     background: rgba(255, 255, 255, 0.9);
-    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .filter-header h3 {
@@ -101,9 +102,10 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 80%;
+    width: 100%; /* Full width since filters are on top */
     height: 100%;
-    margin-left: 180px;
+    margin-left: 0;
+    padding: 0 10px;
     transition: width 0.3s ease;
 }
 
@@ -113,9 +115,9 @@ header {
     height: 100%;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.9);
-    width: 20%;
-    margin-left: 70px;
-    border-right: 1px solid #ccc;
+    width: 100%;
+    margin-left: 0;
+    border-bottom: 1px solid #ccc;
 }
 
 .results {
@@ -337,23 +339,24 @@ h3 {
     transform: scale(1.05);
 }
 
+/* Media Queries for responsive design */
 @media (max-width: 768px) {
     .profile {
         flex: 0 1 calc(50% - 10px);
-        max-width: 100%; /* Allow profiles to take up full width */
+        max-width: 100%;
     }
 
     .filters {
-        width: 30%; /* Adjust filter panel to 30% */
+        width: 100%;
     }
 
     .results-container {
-        width: 65%;
+        width: 100%;
         margin-left: 0;
     }
 
     .results {
-        grid-template-columns: repeat(2, 1fr); /* Reduce to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -364,7 +367,7 @@ h3 {
     }
 
     .filters {
-        width: 100%; /* Full width for filters */
+        width: 100%;
     }
 
     .results-container {
@@ -373,11 +376,11 @@ h3 {
     }
 
     .results {
-        grid-template-columns: 1fr; /* Stack results in 1 column on mobile */
+        grid-template-columns: 1fr;
     }
 
     .pagination-controls button {
-        font-size: 10px; /* Smaller pagination buttons */
+        font-size: 10px;
         height: 28px;
     }
 
