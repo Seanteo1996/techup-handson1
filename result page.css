@@ -1,3 +1,9 @@
+html {
+    overflow: hidden;
+    height: 110%;
+    margin: 0;
+}
+
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -17,45 +23,70 @@ body {
 
 header {
     background-color: white;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 10px 20px; /* Reduced padding for a smaller header */
+    display: flex;                /* Use flexbox for layout */
+    align-items: start;          /* Vertically align items in the center */
     z-index: 1000;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduced bottom margin */
     width: 100%;
 }
+
+.header-content {
+    display: flex;                /* Align items within the header content using flexbox */
+    align-items: center;          /* Vertically center the items */
+    gap: 20px;
+    width: 100%;                  /* Ensure the header content takes full width */
+}
+
+header img {
+    height: 70px;  /* Adjust the size of the logo */
+    width: auto;   /* Keep the aspect ratio of the logo */
+}
+
+header h1 {
+    font-size: 1.8em;  /* Adjust font size of the heading */
+    color: #333;       /* Set color for the heading */
+    margin: 0;         /* Remove default margin */
+}
+
+
+
 
 .container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 120px); /* Adjust to fit within the viewport */
+    height: 100vh; /* Full height of the viewport */
     margin: 0;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 0;
     flex-direction: column; /* Stack filters above results */
-    overflow: hidden;
 }
 
 /* Filters - positioned in a row */
 .filters {
-    padding: 10px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #ccc;
-    height: auto; /* Adjusted height to fit content */
     display: flex;
     flex-wrap: wrap; /* Allow filters to wrap onto the next line */
     gap: 10px; /* Add space between filter items */
     justify-content: flex-start; /* Align filters to the left */
     transition: width 0.3s ease, opacity 0.3s ease;
+    height: 50%;
 }
 
 .filters.hidden {
     display: none;
+}
+
+.filter-panel {
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease; /* Smooth transitions */
+    height: 20%;
 }
 
 .filter-header {
@@ -63,16 +94,25 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px;
+    padding: 5px 10px; /* Reduced padding */
     margin: 0px;
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid #ccc;
+    height:20%;
 }
 
 .filter-header h3 {
     margin: 0;
     font-size: 1.2em;
     font-weight: 600;
+}
+
+h3 {
+    
+    font-size: 1.2em; /* Set a moderate size */
+    font-weight: 600; /* Make the text bold */
+    color: #333; /* Dark text color for better readability */
+    margin: 10px 0; /* Add space above and below the heading */
+    text-transform: uppercase; /* Capitalize the heading text */
+    letter-spacing: 1px; /* Slight letter-spacing for a more refined look */
 }
 
 .filter-button {
@@ -85,6 +125,7 @@ header {
 .filter-icon {
     width: 30px;
     height: 30px;
+    padding-right:20px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -110,6 +151,7 @@ header {
 .agency-checkbox-label,
 .mentoring-area-checkbox-label,
 .exp-checkbox-label {
+    font-size: 12px;
     width: auto; /* Remove fixed width */
     padding: 5px;
     margin: 0 10px;
@@ -125,16 +167,18 @@ header {
 }
 
 .filter-actions {
-    display: flex;
-    justify-content: flex-start;
-    padding: 15px 0;
-    margin-top: 20px;
-    gap: 15px;
+    display: flex;              /* Use flexbox for layout */
+    justify-content: flex-end;  /* Align the child elements (buttons) to the right */
+    align-items: center;        /* Vertically center the items (if needed) */
+    width: 40%; 
+    padding-top: 30px;               /* Ensure the container takes full width */
+    padding-right: 10px;
+    height: 60%;
 }
 
 #resetButton {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px 10px 10px;
+    font-size: 12px;
     background-color: #FF5733;
     color: white;
     border: none;
@@ -148,31 +192,31 @@ header {
 }
 
 /* Results section - should be scrollable */
-.results-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto; /* Enable scrolling for results */
-    padding: 10px;
+
+/* General Layout Adjustments */
+.more-filter-container {
+    height: 65%;
+    padding-top: 20px;
+    margin-top: 20px;
+
 }
 
 .results {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 10px;
     margin: auto;
     width: 100%;
+    align-items: flex-start;
     justify-items: center;
-    overflow-y: auto;
+    height: 85%; /* Ensure grid takes available space */
 }
+
 
 .profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
     box-sizing: border-box;
     border: 2px solid #72bdff;
     border-radius: 8px;
@@ -182,21 +226,27 @@ header {
     width: 100%;
     max-width: 300px;
     position: relative;
+    transform: scale(0.8);
+
+    height: 100%;
 }
+
 
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .profile-info {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 0;
+    margin: 10px;
+    flex-grow: 1;
 }
 
 .profile-info h3 {
@@ -226,8 +276,10 @@ header {
     color: white;
     transition: background-color 0.3s, transform 0.2s;
     margin-top: auto;
+    margin-bottom: 10px;
     width: auto;
     font-size: 18px;
+    align-items: center;
 }
 
 .profile-btn:hover {
@@ -243,7 +295,7 @@ header {
     height: 5%;
     width: 100%;
     margin: 10px;
-    padding: 0px;
+    padding-top: 15px;
 }
 
 .pagination-controls button {
@@ -290,6 +342,7 @@ header {
     .results-container {
         width: 100%;
         margin-left: 0;
+        height: 60%;
     }
 
     .results {
@@ -321,7 +374,77 @@ header {
     }
 }
 
-header img {
-    height: 70px;
-    margin-right: 20px;
+
+#filterPanel section .checkbox-group {
+    margin-top: 10px 0px 0px; /* Add some space above the checkboxes */
+    padding: 10 px;
+    height: 40%;
+    display: block; /* Make checkbox group a block-level element */
+}
+
+#filterPanel section h3 {
+    font-size: 1.2em; /* Adjust font size */
+    font-weight: 600; /* Make the text bold */
+    color: #333; /* Set a color for the text */
+    padding-left: 10px; /* Add space below the <h3> */
+    margin: 0;
+}
+
+.agency-exp-filters {
+    display: flex;
+    flex-direction: row;  /* Stack sections horizontally */
+    height: 60%;
+    width: 100%;  /* Take up 50% of the total space */
+    padding-right: 20px;  /* Add some space on the right side */
+   }
+
+   .agency-exp-filters section {
+    width: 30%;
+    height:60%;
+   }
+
+   .profile-info .experience {
+    padding-bottom: 10px; /* Adjust the padding value as needed */
+}
+
+/* Mentoring Area Button Styles */
+.mentoring-btn {
+    background-color: #276fae; /* Blue background */
+    color: white; /* White text */
+    font-size: 12px; /* Set a font size */
+    font-weight: 600; /* Bold text */
+    padding: 8px; /* Padding for a more spacious button */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Cursor pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for effects */
+    margin: 5px; /* Margin around buttons */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect */
+.mentoring-btn:hover {
+    background-color: #7eb8fc; /* Darker blue on hover */
+    transform: translateY(-2px); /* Button slightly lifts on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* Focused button (keyboard or mouse focus) */
+.mentoring-btn:focus {
+    outline: none; /* Remove default focus outline */
+    border: 2px solid #FF5733; /* Add a distinctive focus border */
+    box-shadow: 0 0 8px rgba(255, 87, 51, 0.7); /* Glow effect on focus */
+}
+
+/* Active (clicked) state */
+.mentoring-btn:active {
+    background-color: #08224a; /* Even darker blue when pressed */
+    transform: translateY(0); /* Remove lift effect */
+}
+
+/* Disabled button state */
+.mentoring-btn:disabled {
+    background-color: #B0BEC5; /* Light grey for disabled state */
+    cursor: not-allowed; /* Change cursor to indicate no action */
+    box-shadow: none; /* Remove shadow when disabled */
 }

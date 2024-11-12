@@ -2,7 +2,7 @@
 let allProfiles = [];
 let originalProfiles = []; // Store the original profiles for resetting filters
 let currentPage = 1; // Track the current page
-const profilesPerPage = 6; // Number of profiles per page
+const profilesPerPage = 4; // Number of profiles per page
 
 // Global variable to store selected years of experience filters
 let selectedExperienceRanges = [];

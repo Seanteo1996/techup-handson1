@@ -79,60 +79,61 @@
                     </div>
                 </section>
 
-                <!-- Years of Experience Section -->
-                <section>
-                    <h3>Years of Experience</h3>
-                    <div class="checkbox-group">
-                        <div class="checkbox-row">
-                            <!-- First Column of Checkboxes -->
+                <div class="agency-exp-filters"> 
+                    <section>
+                        <h3>Years of Experience</h3>
+                        <div class="checkbox-group">
                             <div class="checkbox-row">
-                                <label class="checkbox-label exp-checkbox-label">
-                                    <input type="checkbox" value="5 - 10" onclick="applyFilters()"> 5 - 10 Years
-                                </label>
-                                <label class="checkbox-label exp-checkbox-label">
-                                    <input type="checkbox" value="11 - 15" onclick="applyFilters()"> 11 - 15 Years
-                                </label>
-                                <label class="checkbox-label exp-checkbox-label">
-                                    <input type="checkbox" value="16 - 20" onclick="applyFilters()"> 16 - 20 Years
-                                </label>
-                                <label class="checkbox-label exp-checkbox-label">
-                                    <input type="checkbox" value="21 - 25" onclick="applyFilters()"> 21 - 25 Years
-                                </label>
-                                <label class="checkbox-label exp-checkbox-label">
-                                    <input type="checkbox" value="26 - 30" onclick="applyFilters()"> 26 - 30 Years
-                                </label>
-                                
+                                <!-- First Column of Checkboxes -->
+                                <div class="checkbox-row">
+                                    <label class="checkbox-label exp-checkbox-label">
+                                        <input type="checkbox" value="5 - 10" onclick="applyFilters()"> 5 - 10 Years
+                                    </label>
+                                    <label class="checkbox-label exp-checkbox-label">
+                                        <input type="checkbox" value="11 - 15" onclick="applyFilters()"> 11 - 15 Years
+                                    </label>
+                                    <label class="checkbox-label exp-checkbox-label">
+                                        <input type="checkbox" value="16 - 20" onclick="applyFilters()"> 16 - 20 Years
+                                    </label>
+                                    <label class="checkbox-label exp-checkbox-label">
+                                        <input type="checkbox" value="21 - 25" onclick="applyFilters()"> 21 - 25 Years
+                                    </label>
+                                    <label class="checkbox-label exp-checkbox-label">
+                                        <input type="checkbox" value="26 - 30" onclick="applyFilters()"> 26 - 30 Years
+                                    </label>
+                                    
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
 
-
-                <!-- Agencies Section -->
-                <section>
-                    <div class="checkbox-group">
-                        <h3>Agencies/Ministries</h3>
-                        <div class="checkbox-row">
-                            <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> CSA</label>
-                            <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> GovTech</label>
-                            <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> IMDA</label>
-                            <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (SNDGO)</label>
-                            <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (non-SNDGO)</label>
-                            <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> NLB</label>
+                    <!-- Agencies Section -->
+                    <section>
+                        <div class="checkbox-group">
+                            <h3>Agencies/Ministries</h3>
+                            <div class="checkbox-row">
+                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> CSA</label>
+                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> GovTech</label>
+                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> IMDA</label>
+                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (SNDGO)</label>
+                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> MDDI (non-SNDGO)</label>
+                                <label class="checkbox-label agency-checkbox-label"><input type="checkbox" onclick="applyFilters()"> NLB</label>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
                 <!-- Buttons for Apply Filters and Clear All -->
-                <div class="filter-actions">
-                    <button id="resetButton" onclick="resetFilters()">Clear All</button>
+                    <div class="filter-actions">
+                        <button id="resetButton" onclick="resetFilters()">Clear All</button>
+                    </div>
                 </div>
+
             </div>
         </div>
 
         <!-- Results container where profiles will be displayed -->
-        <div class="results-container">
+        <div class="more-filter-container">
             <div class="results" id="resultsContainer">
                 <!-- Profiles will be populated here dynamically -->
             </div>
