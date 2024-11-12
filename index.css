@@ -27,7 +27,7 @@ body img {
     text-align: center;
     padding: 50px 20px;
     overflow: hidden;
-    max-width: 1200px; /* Container width */
+    width:1005:; /* Container width */
     margin: 0 auto; /* Center the hero section */
 }
 
