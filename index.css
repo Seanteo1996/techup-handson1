@@ -198,15 +198,9 @@ footer {
     padding-bottom: 30px;
 }
 
-.testimonial-slider {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.testimonial-cards {
+/* Featured Mentors Section */
+.mentor-cards,
+.testimonial-cards  {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
     gap: 20px; /* Space between grid items */
@@ -214,6 +208,17 @@ footer {
     align-items: center; /* Vertically center the items */
     max-width: 1200px; /* Optional: Set a max width to prevent cards from stretching too wide */
     margin: 0 auto; /* Center the grid container */
+}
+
+.mentor-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    height:90%;
+    width: 75%;
 }
 
 .testimonial-card {
