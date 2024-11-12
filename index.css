@@ -9,6 +9,14 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    text-align: center; /* Centers all content by default */
+}
+
+body img {
+    width: 150px;
+    height: auto;
+    margin: 0 auto;
+    display: block; /* Ensure image is centered and doesn't overflow */
 }
 
 /* Hero Section */
@@ -19,16 +27,14 @@ body {
     text-align: center;
     padding: 50px 20px;
     overflow: hidden;
-}
-
-.hero .hero-content {
-    z-index: 2;
+    max-width: 1200px; /* Container width */
+    margin: 0 auto; /* Center the hero section */
 }
 
 .hero h1 {
     font-size: 3rem;
     font-weight: 700;
-    margin-top: 0px; /* Adjust this value to move it up */
+    margin-top: 0;
     margin-bottom: 20px;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
@@ -58,16 +64,16 @@ body {
     border-radius: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.3s;
-    text-align: center; /* Center text inside button */
+    text-align: center;
 }
 
 .cta-button:hover {
-    background-color: #2980b9; /* Darker blue color on hover */
-    transform: translateY(-5px); /* Slight hover lift effect */
+    background-color: #2980b9;
+    transform: translateY(-5px);
 }
 
 .cta-button:active {
-    transform: translateY(0); /* Remove the lift effect when clicked */
+    transform: translateY(0);
 }
 
 /* SVG Background for Hero Section */
@@ -76,8 +82,8 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Halve the height from 100px */
-    fill: #ffffff; /* White color for the path */
+    height: 50px;
+    fill: #ffffff;
 }
 
 /* Featured Mentors Section */
@@ -90,15 +96,14 @@ body {
     padding-bottom: 30px;
 }
 
-/* Featured Mentors Section */
 .mentor-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    gap: 20px; /* Space between grid items */
-    justify-items: center; /* Horizontally center the items */
-    align-items: center; /* Vertically center the items */
-    max-width: 1200px; /* Optional: Set a max width to prevent cards from stretching too wide */
-    margin: 0 auto; /* Center the grid container */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .mentor-card {
@@ -108,22 +113,22 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease-in-out;
-    height:90%;
-    width: 75%;
+    height: 90%;
+    width: 100%; /* Ensure cards fill container */
+    max-width: 300px; /* Maximum card width */
 }
 
 .mentor-card:hover {
-    transform: translateY(-10px); /* Hover lift effect */
+    transform: translateY(-10px);
 }
 
-/* Circle image and same size for all mentor cards */
 .mentor-card img {
-    width: 120px; /* Fixed size */
-    height: 120px; /* Fixed size */
-    object-fit: cover; /* Crop image to fit */
-    border-radius: 50%; /* Crop image into circle */
-    margin-bottom: 15px; /* Space between image and text */
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow at bottom-right */
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .mentor-card h3 {
@@ -151,41 +156,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .mentor-cards {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.125rem;
-    }
-
-    .cta-button {
-        font-size: 1.1rem;
-        padding: 12px 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .mentor-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .cta-button {
-        font-size: 1rem;
-        padding: 10px 25px;
-    }
-}
-
 /* Testimonial Section Styles */
 .testimonials {
     text-align: center;
@@ -193,39 +163,25 @@ footer {
     background-color: #f4f4f4;
 }
 
-.testimonials h2{
-    text-align: center;
+.testimonials h2 {
     padding-bottom: 30px;
 }
 
-/* Featured Mentors Section */
-.mentor-cards,
-.testimonial-cards  {
+/* Testimonial Card Styles */
+.testimonial-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
-    gap: 20px; /* Space between grid items */
-    justify-items: center; /* Horizontally center the items */
-    align-items: center; /* Vertically center the items */
-    max-width: 1200px; /* Optional: Set a max width to prevent cards from stretching too wide */
-    margin: 0 auto; /* Center the grid container */
-}
-
-.mentor-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-    height:90%;
-    width: 75%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .testimonial-card {
     width: 100%;
     height: 100%;
     padding: 30px;
-    align-items: center;
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #ddd;
@@ -254,19 +210,61 @@ footer {
     font-size: 1.1rem;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
-    .testimonial-card {
-        width: 50%; /* Show 2 testimonials at a time */
+    .mentor-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .testimonial-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.125rem;
+    }
+
+    .cta-button {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+    }
+
+    .mentor-card {
+        width: 100%;
+        max-width: 90%; /* Allow cards to fill more of the screen */
     }
 }
 
 @media (max-width: 480px) {
+    .mentor-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+
+    .mentor-card {
+        width: 100%;
+        max-width: 90%;
+    }
+
     .testimonial-card {
-        width: 100%; /* Show 1 testimonial at a time */
+        width: 100%;
+        max-width: 90%;
     }
 }
 
-body img {
-    width: 150px;
-    height: auto;
-}
